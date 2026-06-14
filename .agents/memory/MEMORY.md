@@ -1,0 +1,1 @@
+- [TAC-SM architecture](tacm-architecture.md) — research ML model in `tacm/`; PyTorch; 14 components each in own file; LM heads dominate param count at large vocab.
