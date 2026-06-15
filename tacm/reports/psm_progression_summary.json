@@ -1,0 +1,493 @@
+{
+  "progression": "TAC Procedural Memory",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "elapsed_total": 0.23045969009399414,
+  "overall_pass": true,
+  "verdict": "PROGRESSION VALIDATED \u2713",
+  "studies": {
+    "PSM-001": {
+      "name": "Procedure Memory",
+      "question": "Can TAC remember a reusable procedure?",
+      "all_pass": true,
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      }
+    },
+    "PSM-002": {
+      "name": "Procedure Transfer",
+      "question": "Can a procedure cross family boundaries?",
+      "all_pass": true,
+      "gates": {
+        "transfer_gain_gt_0": true,
+        "outperforms_fresh_learning": true,
+        "outperforms_random": true,
+        "outperforms_reset": true,
+        "chain_retention_ge_0.50": true
+      }
+    },
+    "PSM-003": {
+      "name": "Procedure Lifecycle",
+      "question": "Can procedures evolve and adapt over time?",
+      "all_pass": true,
+      "gates": {
+        "merge_quality_gain_gt_0": true,
+        "specialization_non_negative": true,
+        "split_children_viable": true,
+        "retirement_works": true,
+        "strengthening_monotone": true
+      }
+    },
+    "PSM-004": {
+      "name": "Procedure Survival",
+      "question": "Why do high-fitness procedures survive longer?",
+      "all_pass": true,
+      "gates": {
+        "high_fitness_survives_longer": true,
+        "survival_gap_ge_0.20": true,
+        "mean_robustness_ge_0.40": true,
+        "noise_robustness_ge_0.40": true,
+        "attack_robustness_gt_0": true
+      }
+    },
+    "PSM-005": {
+      "name": "Procedure Discovery",
+      "question": "Can TAC autonomously invent new procedures?",
+      "all_pass": true,
+      "gates": {
+        "discovered_beats_no_discovery": true,
+        "discovery_accuracy_ge_0.40": true,
+        "utility_ge_0.30": true,
+        "compression_le_1.1": true,
+        "n_patterns_gt_0": true
+      }
+    }
+  },
+  "raw_reports": {
+    "PSM-001": {
+      "label": "full",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_seeds": 5,
+      "elapsed": 0.06801390647888184,
+      "agg": {
+        "n_seeds": 5,
+        "a1_success": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "a2_reuse": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "b1_transfer": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "c1_transfer": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "d1_retry": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "d1_pre_retry": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "retrieval_accuracy": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "family_match_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "final_survival": {
+          "mean": 0.98505,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "store_size_end": {
+          "mean": 4.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "reuse_gain": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "retry_improvement": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "reset_deficit": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "random_vs_correct": {
+          "mean": -0.8,
+          "std": 0.4472135954999579,
+          "ci95": 0.39199999999999996,
+          "n": 5
+        },
+        "transfer_gain": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "survival_cv": 0.0,
+        "disabled_rate": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "random_rate": {
+          "mean": 0.2,
+          "std": 0.4472135954999579,
+          "ci95": 0.39199999999999996,
+          "n": 5
+        },
+        "oracle_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        },
+        "correct_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0,
+          "n": 5
+        }
+      },
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      },
+      "all_pass": true
+    },
+    "PSM-002": {
+      "experiment": "TAC-PSM-002",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "agg": {
+        "transfer_success": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "transfer_gain": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "transfer_retention": {
+          "mean": 0.8913394507857412,
+          "std": 0.09839625710398281,
+          "ci95": 0.08624812208949244
+        },
+        "adaptation_cost": {
+          "mean": 0.3,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "transfer_efficiency": {
+          "mean": 2.287246352324757,
+          "std": 0.17185273777870194,
+          "ci95": 0.1506355662867085
+        },
+        "gain_vs_fresh": {
+          "mean": 0.4,
+          "std": 0.22360679774997896,
+          "ci95": 0.19599999999999998
+        },
+        "gain_vs_random": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "gain_vs_reset": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "chain_ab_quality": {
+          "mean": 0.686173905697427,
+          "std": 0.05155582133361057,
+          "ci95": 0.045190669886012544
+        },
+        "chain_retention": {
+          "mean": 0.8913394507857412,
+          "std": 0.09839625710398281,
+          "ci95": 0.08624812208949244
+        },
+        "chain_reset_quality": {
+          "mean": 0.033676608924019476,
+          "std": 0.04005097412894132,
+          "ci95": 0.0351062266812201
+        },
+        "transfer_gain_over_chain_reset": {
+          "mean": 0.6524972967734075,
+          "std": 0.01614195547194829,
+          "ci95": 0.01414904781222002
+        }
+      },
+      "gates": {
+        "transfer_gain_gt_0": true,
+        "outperforms_fresh_learning": true,
+        "outperforms_random": true,
+        "outperforms_reset": true,
+        "chain_retention_ge_0.50": true
+      },
+      "all_pass": true,
+      "elapsed": 0.02580428123474121
+    },
+    "PSM-003": {
+      "experiment": "TAC-PSM-003",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "agg": {
+        "strengthen_monotone_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "spec_score_gain": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "spec_child_ok": {
+          "mean": 0.2,
+          "std": 0.4472135954999579,
+          "ci95": 0.39199999999999996
+        },
+        "merge_beats_best_parent": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "merge_quality_gain": {
+          "mean": 0.21999999999999997,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "split_children_viable": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "retirement_accuracy": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        }
+      },
+      "gates": {
+        "merge_quality_gain_gt_0": true,
+        "specialization_non_negative": true,
+        "split_children_viable": true,
+        "retirement_works": true,
+        "strengthening_monotone": true
+      },
+      "all_pass": true,
+      "elapsed": 0.03500080108642578
+    },
+    "PSM-004": {
+      "experiment": "TAC-PSM-004",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "agg": {
+        "hi_survival_rate": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "lo_survival_rate": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "survival_gap": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "mean_robustness": {
+          "mean": 0.43066666666666664,
+          "std": 0.00760116950066092,
+          "ci95": 0.006662718831094572
+        },
+        "noise_robustness": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "attack_robustness": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "hi_fitness": {
+          "mean": 0.6511533333333334,
+          "std": 0.0028884444102511724,
+          "ci95": 0.002531833155815957
+        },
+        "lo_fitness": {
+          "mean": 0.0975,
+          "std": 0.0,
+          "ci95": 0.0
+        }
+      },
+      "gates": {
+        "high_fitness_survives_longer": true,
+        "survival_gap_ge_0.20": true,
+        "mean_robustness_ge_0.40": true,
+        "noise_robustness_ge_0.40": true,
+        "attack_robustness_gt_0": true
+      },
+      "all_pass": true,
+      "elapsed": 0.06691265106201172
+    },
+    "PSM-005": {
+      "experiment": "TAC-PSM-005",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "agg": {
+        "n_patterns_mined": {
+          "mean": 12.4,
+          "std": 3.2093613071762426,
+          "ci95": 2.8131292185038355
+        },
+        "n_procedures_extracted": {
+          "mean": 1,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "n_verified": {
+          "mean": 1,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "utility_score": {
+          "mean": 0.4881222006291883,
+          "std": 0.07515859814048023,
+          "ci95": 0.06587941593799561
+        },
+        "no_disc_quality": {
+          "mean": 0.04703630877092438,
+          "std": 0.047428114572135846,
+          "ci95": 0.04157257538535409
+        },
+        "rand_quality": {
+          "mean": 0.27959144352118703,
+          "std": 0.25742121223789843,
+          "ci95": 0.22563964113042193
+        },
+        "oracle_quality": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "discovery_accuracy": {
+          "mean": 0.4881222006291883,
+          "std": 0.07515859814048023,
+          "ci95": 0.06587941593799561
+        },
+        "compression_ratio": {
+          "mean": 0.6775738780485618,
+          "std": 0.17899291575648427,
+          "ci95": 0.15689420823197767
+        },
+        "beats_no_discovery": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "reuse_frequency": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        }
+      },
+      "gates": {
+        "discovered_beats_no_discovery": true,
+        "discovery_accuracy_ge_0.40": true,
+        "utility_ge_0.30": true,
+        "compression_le_1.1": true,
+        "n_patterns_gt_0": true
+      },
+      "all_pass": true,
+      "elapsed": 0.03096771240234375
+    }
+  }
+}

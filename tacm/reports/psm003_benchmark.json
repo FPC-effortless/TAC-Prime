@@ -1,0 +1,56 @@
+{
+  "experiment": "TAC-PSM-003",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "agg": {
+    "strengthen_monotone_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "spec_score_gain": {
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "spec_child_ok": {
+      "mean": 0.2,
+      "std": 0.4472135954999579,
+      "ci95": 0.39199999999999996
+    },
+    "merge_beats_best_parent": {
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "merge_quality_gain": {
+      "mean": 0.21999999999999997,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "split_children_viable": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "retirement_accuracy": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "gates": {
+    "merge_quality_gain_gt_0": true,
+    "specialization_non_negative": true,
+    "split_children_viable": true,
+    "retirement_works": true,
+    "strengthening_monotone": true
+  },
+  "all_pass": true,
+  "elapsed": 0.03216361999511719
+}

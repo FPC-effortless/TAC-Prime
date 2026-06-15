@@ -1,0 +1,76 @@
+{
+  "experiment": "TAC-PSM-005",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "agg": {
+    "n_patterns_mined": {
+      "mean": 12.4,
+      "std": 3.2093613071762426,
+      "ci95": 2.8131292185038355
+    },
+    "n_procedures_extracted": {
+      "mean": 1,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "n_verified": {
+      "mean": 1,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "utility_score": {
+      "mean": 0.4881222006291883,
+      "std": 0.07515859814048023,
+      "ci95": 0.06587941593799561
+    },
+    "no_disc_quality": {
+      "mean": 0.04703630877092438,
+      "std": 0.047428114572135846,
+      "ci95": 0.04157257538535409
+    },
+    "rand_quality": {
+      "mean": 0.27959144352118703,
+      "std": 0.25742121223789843,
+      "ci95": 0.22563964113042193
+    },
+    "oracle_quality": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "discovery_accuracy": {
+      "mean": 0.4881222006291883,
+      "std": 0.07515859814048023,
+      "ci95": 0.06587941593799561
+    },
+    "compression_ratio": {
+      "mean": 0.6775738780485618,
+      "std": 0.17899291575648427,
+      "ci95": 0.15689420823197767
+    },
+    "beats_no_discovery": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "reuse_frequency": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "gates": {
+    "discovered_beats_no_discovery": true,
+    "discovery_accuracy_ge_0.40": true,
+    "utility_ge_0.30": true,
+    "compression_le_1.1": true,
+    "n_patterns_gt_0": true
+  },
+  "all_pass": true,
+  "elapsed": 0.02841353416442871
+}

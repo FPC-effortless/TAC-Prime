@@ -1,0 +1,61 @@
+{
+  "experiment": "TAC-PSM-004",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "agg": {
+    "hi_survival_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "lo_survival_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "survival_gap": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "mean_robustness": {
+      "mean": 0.43066666666666664,
+      "std": 0.00760116950066092,
+      "ci95": 0.006662718831094572
+    },
+    "noise_robustness": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "attack_robustness": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "hi_fitness": {
+      "mean": 0.6511533333333334,
+      "std": 0.0028884444102511724,
+      "ci95": 0.002531833155815957
+    },
+    "lo_fitness": {
+      "mean": 0.0975,
+      "std": 0.0,
+      "ci95": 0.0
+    }
+  },
+  "gates": {
+    "high_fitness_survives_longer": true,
+    "survival_gap_ge_0.20": true,
+    "mean_robustness_ge_0.40": true,
+    "noise_robustness_ge_0.40": true,
+    "attack_robustness_gt_0": true
+  },
+  "all_pass": true,
+  "elapsed": 0.06394481658935547
+}

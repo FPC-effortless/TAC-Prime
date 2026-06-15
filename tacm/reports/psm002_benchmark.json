@@ -1,0 +1,81 @@
+{
+  "experiment": "TAC-PSM-002",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "agg": {
+    "transfer_success": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "transfer_gain": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "transfer_retention": {
+      "mean": 0.8913394507857412,
+      "std": 0.09839625710398281,
+      "ci95": 0.08624812208949244
+    },
+    "adaptation_cost": {
+      "mean": 0.3,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "transfer_efficiency": {
+      "mean": 2.287246352324757,
+      "std": 0.17185273777870194,
+      "ci95": 0.1506355662867085
+    },
+    "gain_vs_fresh": {
+      "mean": 0.4,
+      "std": 0.22360679774997896,
+      "ci95": 0.19599999999999998
+    },
+    "gain_vs_random": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "gain_vs_reset": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0
+    },
+    "chain_ab_quality": {
+      "mean": 0.686173905697427,
+      "std": 0.05155582133361057,
+      "ci95": 0.045190669886012544
+    },
+    "chain_retention": {
+      "mean": 0.8913394507857412,
+      "std": 0.09839625710398281,
+      "ci95": 0.08624812208949244
+    },
+    "chain_reset_quality": {
+      "mean": 0.033676608924019476,
+      "std": 0.04005097412894132,
+      "ci95": 0.0351062266812201
+    },
+    "transfer_gain_over_chain_reset": {
+      "mean": 0.6524972967734075,
+      "std": 0.01614195547194829,
+      "ci95": 0.01414904781222002
+    }
+  },
+  "gates": {
+    "transfer_gain_gt_0": true,
+    "outperforms_fresh_learning": true,
+    "outperforms_random": true,
+    "outperforms_reset": true,
+    "chain_retention_ge_0.50": true
+  },
+  "all_pass": true,
+  "elapsed": 0.022381305694580078
+}
