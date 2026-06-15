@@ -105,6 +105,48 @@ python scripts/prepare_data.py --synthetic --n 10000 --output_dir ./data/synthet
 
 ---
 
+## TAC-PSM Progression: Procedural Memory Validation
+
+TAC-PSM is a five-stage controlled benchmark that validates the procedural memory mechanism independently of the neural backbone. All five studies pass on synthetic repair tasks.
+
+| Study | Question | Gates | Result |
+|---|---|---|---|
+| PSM-001: Memory | Can TAC remember a reusable procedure? | 7/7 | ✓ |
+| PSM-002: Transfer | Can a procedure cross family boundaries? | 5/5 | ✓ |
+| PSM-003: Lifecycle | Can procedures evolve over time? | 5/5 | ✓ |
+| PSM-004: Survival | Why do some procedures survive? | 5/5 | ✓ |
+| PSM-005: Discovery | Can TAC invent procedures? | 5/5 | ✓ |
+
+**Total: 27/27 gates, 5 seeds each.**
+
+```bash
+# Run the full progression
+cd tacm && python3 scripts/run_psm_progression.py --seeds 0 1 2 3 4
+# Or as a module
+cd tacm && python -m tacm.scripts.run_psm_progression
+```
+
+Expected output: `PROGRESSION VALIDATED — 5/5 studies, 27/27 gates`
+
+> **Framing:** This is a controlled synthetic benchmark. It validates the procedural memory *mechanism*, not full production coding ability. See `docs/tac_psm_limitations.md`.
+
+### PSM Files
+
+```
+tacm/psm001/   store.py, retrieval.py, update.py, records.py, benchmark_families.py
+tacm/psm002/   transfer.py, metrics.py
+tacm/psm003/   lifecycle.py, operations.py
+tacm/psm004/   survival.py, perturbation.py
+tacm/psm005/   discovery.py, verification.py
+tacm/neural_survival_field.py   — differentiable NSF loss for TACSM training
+scripts/       benchmark_tac_psm001..005.py, run_psm_progression.py
+reports/       TAC_PSM_Progression_Report.md, psm_progression_summary.json
+docs/          tac_psm_progression_report.md, tac_psm_limitations.md,
+               tac_psm_next_stage.md, tac_psm_investor_summary.md
+```
+
+---
+
 ## Parameter Counts
 
 The backbone + auxiliary components control model size. The LM head dominates at large vocab sizes — reduce `n_future_tokens` or use a smaller vocab for tighter budgets.

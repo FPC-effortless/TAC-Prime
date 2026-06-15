@@ -1,0 +1,29 @@
+TAC-SM Progress Log
+===================
+
+[2026-06-15] PSM-001 through PSM-005 VALIDATED
+  - 27/27 gates passed
+  - 5 seeds each
+  - Studies: Memory, Transfer, Lifecycle, Survival, Discovery
+  - Synthetic benchmark; mechanism validated, not real-world coding
+  - Reproducer: python3 scripts/run_psm_progression.py --seeds 0 1 2 3 4
+
+[2026-06-14] PSM-001 Procedural Memory VALIDATED
+  - 7/7 gates passed on 5 seeds
+  - FAISS-backed ProceduralMemoryStore implemented
+  - 50/50 unit tests pass
+
+[2026-06-01] TAC-SM architecture finalised
+  - 14 components, each in own file
+  - Forward pass tested at 30M params
+  - FAISS + numpy backends for StructureMemory
+
+[PLANNED] PSM-006 Repository-Grounded Procedural Memory
+  - Real/semi-real repository repair tasks
+  - Baseline: same-size Transformer + MoE
+  - Gate: repair success >= reset + 0.10
+
+[PLANNED] PSM-007 Neural Integration
+  - Train TACSM with PSM-grounded loss signals
+  - Connect NeuralSurvivalField to procedural memory
+  - Target: SWE-bench-lite or custom repair benchmark

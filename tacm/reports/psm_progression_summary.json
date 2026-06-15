@@ -7,7 +7,7 @@
     3,
     4
   ],
-  "elapsed_total": 0.23045969009399414,
+  "elapsed_total": 0.16529583930969238,
   "overall_pass": true,
   "verdict": "PROGRESSION VALIDATED \u2713",
   "studies": {
@@ -85,7 +85,7 @@
         4
       ],
       "n_seeds": 5,
-      "elapsed": 0.06801390647888184,
+      "elapsed": 0.0518193244934082,
       "agg": {
         "n_seeds": 5,
         "a1_success": {
@@ -294,7 +294,7 @@
         "chain_retention_ge_0.50": true
       },
       "all_pass": true,
-      "elapsed": 0.02580428123474121
+      "elapsed": 0.01154780387878418
     },
     "PSM-003": {
       "experiment": "TAC-PSM-003",
@@ -350,7 +350,7 @@
         "strengthening_monotone": true
       },
       "all_pass": true,
-      "elapsed": 0.03500080108642578
+      "elapsed": 0.02724313735961914
     },
     "PSM-004": {
       "experiment": "TAC-PSM-004",
@@ -411,7 +411,7 @@
         "attack_robustness_gt_0": true
       },
       "all_pass": true,
-      "elapsed": 0.06691265106201172
+      "elapsed": 0.05428123474121094
     },
     "PSM-005": {
       "experiment": "TAC-PSM-005",
@@ -487,7 +487,7 @@
         "n_patterns_gt_0": true
       },
       "all_pass": true,
-      "elapsed": 0.03096771240234375
+      "elapsed": 0.020301103591918945
     }
   }
 }

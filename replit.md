@@ -8,6 +8,21 @@ A research-grade PyTorch model that learns reusable computational structures and
 # Quick forward-pass test
 cd tacm && python3 -c "from tacm import TACSM, tacm_30m; import torch; m=TACSM(tacm_30m()); print(m.n_params()/1e6,'M')"
 
+# ── TAC-PSM Procedural Memory Progression ──────────────────────────
+# Run full progression (5 studies, 27 gates, 5 seeds)
+cd tacm && python3 scripts/run_psm_progression.py --seeds 0 1 2 3 4
+# Or as a module
+cd tacm && python -m tacm.scripts.run_psm_progression
+# Expected output: PROGRESSION VALIDATED — 5/5 studies, 27/27 gates
+
+# Individual PSM benchmarks
+cd tacm && python3 scripts/benchmark_tac_psm001.py --seeds 0 1 2 3 4
+cd tacm && python3 scripts/benchmark_tac_psm002.py --seeds 0 1 2 3 4
+cd tacm && python3 scripts/benchmark_tac_psm003.py --seeds 0 1 2 3 4
+cd tacm && python3 scripts/benchmark_tac_psm004.py --seeds 0 1 2 3 4
+cd tacm && python3 scripts/benchmark_tac_psm005.py --seeds 0 1 2 3 4
+
+# ── Neural backbone ─────────────────────────────────────────────────
 # Stage 1: Train 30M on synthetic data
 cd tacm && python3 train.py --config tacm-30m
 
@@ -43,12 +58,21 @@ cd tacm && python3 scripts/prepare_data.py --synthetic --n 10000 --output_dir ./
 - `tacm/tacm/config.py` — all hyperparameters + preset configs (30M/100M/150M)
 - `tacm/tacm/model.py` — full TACSM model wiring everything together
 - `tacm/tacm/memory.py` — Structure Memory (primary innovation)
+- `tacm/tacm/neural_survival_field.py` — differentiable NSF loss (PSM-grounded)
 - `tacm/tacm/agent.py` — Repository Repair Agent Loop
+- `tacm/tacm/psm001/` through `tacm/tacm/psm005/` — procedural memory studies
 - `tacm/train.py` — training script (3-stage Kaggle training)
 - `tacm/evaluate.py` — evaluation + baseline comparison
-- `tacm/scripts/benchmark.py` — head-to-head benchmark table
+- `tacm/scripts/benchmark_tac_psm001..005.py` — per-study benchmarks
+- `tacm/scripts/run_psm_progression.py` — unified progression runner
 - `tacm/configs/` — YAML configs for 30M and 100M presets
 - `tacm/README.md` — full architecture docs
+- `tacm/research.md` — dated research log
+- `tacm/progress.txt` — concise milestone log
+- `docs/tac_psm_progression_report.md` — full scientific report
+- `docs/tac_psm_limitations.md` — honest limitations statement
+- `docs/tac_psm_next_stage.md` — PSM-006 design
+- `docs/tac_psm_investor_summary.md` — investor-facing summary
 
 ## Architecture decisions
 
