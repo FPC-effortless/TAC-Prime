@@ -162,11 +162,16 @@ def compute_route_consistency(
     For each family, measure how consistently the same identity is activated.
     Returns mean (1 − normalised_entropy) across families, ∈ [0, 1].
     A value of 1.0 means the same identity fires every time (perfectly consistent).
+    Uses n_families as the bucket count so max_entropy is log(n_families),
+    giving a well-calibrated normalisation regardless of observed identity range.
     """
-    scores     = []
-    max_val    = float(max(max(v) for v in family_routes.values() if v) + 1)
-    n_buckets  = int(max_val) + 1
+    if not family_routes:
+        return 0.0
 
+    n_buckets = max(n_families, 2)   # at least 2 to avoid log(1)=0 edge
+    max_ent   = math.log(n_buckets)
+
+    scores = []
     for fid, routes in family_routes.items():
         if not routes:
             continue
@@ -175,8 +180,7 @@ def compute_route_consistency(
             counts[int(r) % n_buckets] += 1
         probs   = counts / (counts.sum() + 1e-8)
         entropy = float(-(probs * np.log(probs + 1e-9)).sum())
-        max_ent = math.log(n_buckets) if n_buckets > 1 else 1.0
-        scores.append(1.0 - entropy / max_ent)
+        scores.append(1.0 - min(entropy / max_ent, 1.0))
     return float(sum(scores) / len(scores)) if scores else 0.0
 
 

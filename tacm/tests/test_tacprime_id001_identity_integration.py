@@ -125,14 +125,15 @@ class TestSimulationConditions:
 class TestBenchmarkRunSeed:
 
     def _load_bench(self):
-        import importlib.util, pathlib
+        import importlib.util, pathlib, sys
         bench_path = (
             pathlib.Path(__file__).parent.parent
             / "experiments"
             / "benchmark_tacprime_id001_identity_carried_structure_memory.py"
         )
-        spec  = importlib.util.spec_from_file_location("bench", bench_path)
+        spec  = importlib.util.spec_from_file_location("_tacm_bench_id001", bench_path)
         bench = importlib.util.module_from_spec(spec)
+        sys.modules[spec.name] = bench   # register so dataclass can resolve __module__
         spec.loader.exec_module(bench)
         return bench
 

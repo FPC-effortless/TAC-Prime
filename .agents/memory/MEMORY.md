@@ -3,3 +3,5 @@
 - [PSM-002 through 005 design](psm002-005-design.md) — full scientific progression; key calibration decisions for each gate to make them pass on 5 seeds.
 - [NSF differentiable module](tacm-nsf-module.md) — NeuralSurvivalField in neural_survival_field.py; requires fitness_disc auxiliary loss for full gradient flow; 4 loss components.
 - [PSM-006 design](psm006-design.md) — repository-grounded procedural memory; 8/8 gates pass 5 seeds; critical calibration decisions for update gate.
+- [PSM-006B design](psm006b-design.md) — semi-real pytest-grounded repair; SimpleProceduralMemoryStore (numpy, no FAISS); 64-dim centroid embeddings; 49/49 unit tests pass.
+- [ID001 bugs fixed](id001-bugs.md) — two routing bugs fixed: empty-dict crash + entropy normalization using log(n_families); benchmark loader sys.modules fix.
