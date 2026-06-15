@@ -145,6 +145,10 @@ class StructureRouter(nn.Module):
     """
     Full two-level router.
     FamilyRouter → ExpertRouter, with combined routing output.
+
+    TAC-Prime-ID001: optionally biases routing with a projected identity_context
+    vector (identity_router_bias_scale * projected_identity_context added to the
+    router hidden input before expert-logit computation).
     """
 
     def __init__(
@@ -162,14 +166,24 @@ class StructureRouter(nn.Module):
         self.family_embed = nn.Embedding(cfg.n_families, d_model)
         nn.init.normal_(self.family_embed.weight, std=0.02)
 
+        # Identity bias projection (TAC-Prime-ID001) — projects identity_context
+        # into the same space as the router hidden input
+        self.identity_bias_proj = nn.Linear(d_model, d_model, bias=False)
+        nn.init.zeros_(self.identity_bias_proj.weight)  # zero-init → no effect initially
+
     def forward(
         self,
         hidden: torch.Tensor,
         concept_center: torch.Tensor,
+        identity_context: Optional[torch.Tensor] = None,
+        identity_router_bias_scale: float = 0.25,
     ) -> "StructureRoutingOutput":
         """
         hidden        : (B, T, d_model)
         concept_center: (B, T, volume_dim)
+        identity_context : (B, T, d_model) or None — from IdentityFieldLayer.
+            When provided, a small bias is added to the router hidden input.
+            Does not hard-code family labels.
 
         Returns StructureRoutingOutput
         """
@@ -179,6 +193,11 @@ class StructureRouter(nn.Module):
         # Condition hidden on family for expert routing
         fam_emb   = self.family_embed(family_ids)          # (B, T, d_model)
         x_cond    = hidden + fam_emb
+
+        # TAC-Prime-ID001: add identity bias to router input (zero by default)
+        if identity_context is not None and identity_router_bias_scale > 0.0:
+            id_bias = self.identity_bias_proj(identity_context)  # (B, T, d_model)
+            x_cond  = x_cond + identity_router_bias_scale * id_bias
 
         # Level 2: expert
         expert_out = self.expert_router(x_cond, family_ids)

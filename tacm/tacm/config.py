@@ -123,6 +123,19 @@ class TrainingConfig:
 
 
 @dataclass
+class IdentityFieldConfig:
+    """Configuration for the IdentityFieldLayer (TAC-Prime-ID001)."""
+    n_identities:             int   = 16
+    identity_energy_budget:   float = 4.0
+    identity_state_decay:     float = 0.8
+    identity_loss_weight:     float = 0.05
+    use_identity_field:       bool  = True
+    identity_residual_scale:  float = 1.0
+    identity_router_bias_scale: float = 0.25
+    identity_memory_bias_scale: float = 0.25
+
+
+@dataclass
 class TACSMConfig:
     name: str = "tacm-30m"
     transformer: TransformerConfig = field(default_factory=TransformerConfig)
@@ -134,6 +147,7 @@ class TACSMConfig:
     verifier: VerifierConfig = field(default_factory=VerifierConfig)
     multi_token: MultiTokenConfig = field(default_factory=MultiTokenConfig)
     training: TrainingConfig = field(default_factory=TrainingConfig)
+    identity: IdentityFieldConfig = field(default_factory=IdentityFieldConfig)
 
 
 # ── Preset Configs ────────────────────────────────────────────────────────────

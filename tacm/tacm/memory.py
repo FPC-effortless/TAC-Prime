@@ -38,6 +38,9 @@ class StructureRecord:
     survival_score: float = 1.0
     usage_count:    int   = 0
     timestamp:      float = field(default_factory=time.time)
+    # Identity fields (TAC-Prime-ID001) — optional; retrieval degrades gracefully
+    identity_id:        Optional[int]          = None
+    identity_embedding: Optional[torch.Tensor] = None  # (d_model,) on CPU
 
     def overall_score(self) -> float:
         return (
@@ -71,10 +74,15 @@ class StructureMemory(nn.Module):
         query_embedding: torch.Tensor,
         family_id: Optional[int] = None,
         top_k: Optional[int] = None,
+        active_identity_id: Optional[int] = None,
+        identity_memory_bias_scale: float = 0.25,
     ) -> List[StructureRecord]:
         """
         query_embedding : (embedding_dim,)
-        Returns top-k records sorted by combined similarity + survival score.
+        active_identity_id : optional int — identity currently active; adds a
+            small identity_match_bonus controlled by identity_memory_bias_scale.
+            Gracefully degrades when records have no identity_id.
+        Returns top-k records sorted by combined score.
         """
         if not self._store:
             return []
@@ -95,7 +103,22 @@ class StructureMemory(nn.Module):
 
         # Combine similarity with survival score
         survival = torch.tensor([r.survival_score for r in records], device=q.device)
-        combined = 0.7 * sims + 0.3 * survival
+
+        # Identity match bonus — small; degrades gracefully when no identity on record
+        if active_identity_id is not None and identity_memory_bias_scale > 0.0:
+            identity_bonus = torch.tensor(
+                [
+                    identity_memory_bias_scale
+                    if (r.identity_id is not None and r.identity_id == active_identity_id)
+                    else 0.0
+                    for r in records
+                ],
+                device=q.device,
+            )
+        else:
+            identity_bonus = torch.zeros(len(records), device=q.device)
+
+        combined = 0.7 * sims + 0.3 * survival + identity_bonus
 
         k      = min(top_k, len(records))
         topk_i = combined.topk(k).indices.tolist()
@@ -105,12 +128,24 @@ class StructureMemory(nn.Module):
         self,
         query_embeddings: torch.Tensor,
         top_k: Optional[int] = None,
+        active_identity_ids: Optional[List[int]] = None,
+        identity_memory_bias_scale: float = 0.25,
     ) -> List[List[StructureRecord]]:
         """
-        query_embeddings: (B, embedding_dim)
+        query_embeddings    : (B, embedding_dim)
+        active_identity_ids : optional list of length B — identity per item
         Returns list of top-k results per query.
         """
-        return [self.retrieve(q, top_k=top_k) for q in query_embeddings]
+        if active_identity_ids is None:
+            return [self.retrieve(q, top_k=top_k) for q in query_embeddings]
+        return [
+            self.retrieve(
+                q, top_k=top_k,
+                active_identity_id=aid,
+                identity_memory_bias_scale=identity_memory_bias_scale,
+            )
+            for q, aid in zip(query_embeddings, active_identity_ids)
+        ]
 
     # ── WRITE ─────────────────────────────────────────────────────────────────
 
@@ -123,10 +158,13 @@ class StructureMemory(nn.Module):
         success_score: float,
         survival_score: float = 1.0,
         transfer_score: float = 0.0,
+        identity_id:        Optional[int]           = None,
+        identity_embedding: Optional[torch.Tensor]  = None,
     ) -> Optional[str]:
         """
         Write a new structure. Returns structure_id if written, else None.
         Only persists if success_score >= write_threshold.
+        identity_id / identity_embedding are optional (TAC-Prime-ID001).
         """
         if success_score < self.cfg.write_threshold:
             return None
@@ -137,16 +175,19 @@ class StructureMemory(nn.Module):
 
         sid = str(uuid.uuid4())[:16]
         record = StructureRecord(
-            structure_id   = sid,
-            family_id      = family_id,
-            expert_id      = expert_id,
-            task_type      = task_type,
-            embedding      = embedding.detach().cpu().float(),
-            success_score  = success_score,
-            transfer_score = transfer_score,
-            survival_score = survival_score,
-            usage_count    = 0,
-            timestamp      = time.time(),
+            structure_id       = sid,
+            family_id          = family_id,
+            expert_id          = expert_id,
+            task_type          = task_type,
+            embedding          = embedding.detach().cpu().float(),
+            success_score      = success_score,
+            transfer_score     = transfer_score,
+            survival_score     = survival_score,
+            usage_count        = 0,
+            timestamp          = time.time(),
+            identity_id        = identity_id,
+            identity_embedding = identity_embedding.detach().cpu().float()
+                                 if identity_embedding is not None else None,
         )
         self._store[sid] = record
         return sid

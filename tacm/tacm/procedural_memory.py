@@ -52,6 +52,9 @@ class ProcedureRecord:
     transfer_rate:  float  = 0.0
     reuse_count:    int    = 0
     timestamp:      float  = field(default_factory=time.time)
+    # Identity fields (TAC-Prime-ID001) — optional; retrieval degrades gracefully
+    identity_id:        Optional[int]          = None
+    identity_embedding: Optional[torch.Tensor] = None  # (d_model,) on CPU
 
     def overall_score(self) -> float:
         return 0.5 * self.success_rate + 0.3 * self.transfer_rate + 0.2 * min(self.reuse_count / 10, 1.0)
@@ -78,7 +81,15 @@ class ProceduralMemory(nn.Module):
         query_embedding: torch.Tensor,
         family: Optional[str] = None,
         top_k: int = 4,
+        active_identity_id: Optional[int] = None,
+        identity_memory_bias_scale: float = 0.25,
     ) -> List[ProcedureRecord]:
+        """
+        Retrieve top-k procedures by semantic similarity + overall score.
+        active_identity_id: optional — adds identity_match_bonus for procedures
+            associated with the currently active identity.  Degrades gracefully
+            when records have no identity_id.
+        """
         if not self._store:
             return []
 
@@ -95,7 +106,22 @@ class ProceduralMemory(nn.Module):
         sims = (embs @ q.T).squeeze(-1)
 
         scores = torch.tensor([r.overall_score() for r in records], device=q.device)
-        combined = 0.6 * sims + 0.4 * scores
+
+        # Identity match bonus — gracefully degrades when no identity on record
+        if active_identity_id is not None and identity_memory_bias_scale > 0.0:
+            identity_bonus = torch.tensor(
+                [
+                    identity_memory_bias_scale
+                    if (r.identity_id is not None and r.identity_id == active_identity_id)
+                    else 0.0
+                    for r in records
+                ],
+                device=q.device,
+            )
+        else:
+            identity_bonus = torch.zeros(len(records), device=q.device)
+
+        combined = 0.6 * sims + 0.4 * scores + identity_bonus
 
         k      = min(top_k, len(records))
         topk_i = combined.topk(k).indices.tolist()
@@ -110,6 +136,8 @@ class ProceduralMemory(nn.Module):
         steps:        List[str],
         step_embeddings: Optional[List[torch.Tensor]] = None,
         success_rate: float = 0.0,
+        identity_id:        Optional[int]          = None,
+        identity_embedding: Optional[torch.Tensor] = None,
     ) -> str:
         if len(self._store) >= self.cfg.max_structures:
             self._prune()
@@ -128,16 +156,18 @@ class ProceduralMemory(nn.Module):
         if step_embeddings:
             emb = torch.stack(step_embeddings).mean(0).cpu()
         else:
-            # Placeholder zero embedding when no encoder is available
             emb = torch.zeros(self.cfg.embedding_dim)
 
         record = ProcedureRecord(
-            procedure_id = pid,
-            family       = family,
-            task_type    = task_type,
-            steps        = proc_steps,
-            embedding    = emb,
-            success_rate = success_rate,
+            procedure_id       = pid,
+            family             = family,
+            task_type          = task_type,
+            steps              = proc_steps,
+            embedding          = emb,
+            success_rate       = success_rate,
+            identity_id        = identity_id,
+            identity_embedding = identity_embedding.detach().cpu().float()
+                                 if identity_embedding is not None else None,
         )
         self._store[pid] = record
         return pid
