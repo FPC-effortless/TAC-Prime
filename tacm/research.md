@@ -83,21 +83,123 @@ verification (real exit codes, no mocks).  Results saved to `tacm/reports/`.
 - `reuse_gain_positive` **FAILS** (2/5): procedure_reuse_gain ≈ 0 (mean 0.000).
   Confirms the reset vs. full_memory parity observed above.
 
-### What this tells us
+### Scientific interpretation
 
-The benchmark reveals a structural limitation: the update mechanism strengthens
-*procedure steps* (text) but not *embedding quality* (vector proximity).  When
-the wrong family is retrieved, augmentation cannot correct the retrieval error
-for the *current* fixture.  Future work should augment the embedding vector
-directly (online metric learning) to make the update gate meaningful.
+**The headline "4/8 gates pass" undersells this result.**
 
-The 4/8 partial validation is honest — the fixture set is working correctly
-(oracle=1.000, no verifier_instability, patch_correctness=1.000).
+The 4 failing gates are diagnostic failures, not architecture failures.
+What failed was **procedural learning**, not procedural memory.
+What was validated was **procedural retrieval and transfer**.
+
+Corrected conclusion:
+
+> TAC-PSM-006B validates executable repository-grounded procedural retrieval
+> and transfer, but does not yet validate procedural adaptation through memory
+> updates.
+
+The update mechanism strengthens *procedure text* but not *embedding vectors*.
+The retrieval decision is driven by cosine similarity on embeddings. When the
+wrong family is retrieved:
+
+```
+retrieve → wrong family → fail → update text
+→ embedding unchanged → retrieve same wrong family → fail again
+```
+
+The system is *remembering*, not *learning*. This is a known gap, not a mystery.
+
+### What PSM-006B actually proved
+
+| Claim | Evidence | Status |
+|---|---|---|
+| Real pytest execution works | oracle=1.000, verifier_instability=0 | ✅ |
+| Fixture repos are valid | patch_correctness=1.000, no design errors | ✅ |
+| Oracle procedures solve tasks | oracle=1.000 on all 5 seeds | ✅ |
+| Retrieval matters | disabled=0.550 vs full_memory=0.863 (+0.313) | ✅ |
+| Wrong procedures hurt | random=0.440 vs full_memory=0.863 (+0.423) | ✅ |
+| Retrieval accuracy is meaningful | 0.813 ± 0.032 | ✅ |
+| Cross-fixture transfer exists | cross_fixture_transfer=0.863 > 0 | ✅ |
+| Results replicate across seeds | std ≤ 0.035 on all variants | ✅ |
+| Patch system stable | patch_correctness=1.000 | ✅ |
+| Procedural adaptation via update | retry_after_update=0.000 | ✗ |
+| Memory advantage over reset | reuse_gain≈0.000 | ✗ |
+
+### The structure_only anomaly
+
+`structure_only = 0.927 > full_memory = 0.863` is a red flag worth investigating.
+
+This implies that in the current fixture distribution, the **structure signal**
+(which file to patch and where) carries more value than the **procedure signal**
+(what content to put there). The fixtures may be:
+
+```
+current:  family recognition → patch location → patch content
+          (mostly structure memory problem)
+
+intended: retrieve procedure → adapt procedure → patch content
+          (procedural memory problem)
+```
+
+Before PSM-007, this should be investigated. If structure_only consistently
+outperforms full_memory, the benchmark is measuring StructureMemory more
+than ProceduralMemory. PSM-006C (see below) will help distinguish these.
+
+### Current TAC evidence ranking
+
+**Strongly validated:**
+Structure Memory, Structure Transfer, Structure Reuse, Structure Routing,
+Context Compression, Repository Retrieval, Repair Verification
+
+**Moderately validated:**
+Procedural Retrieval, Procedural Transfer
+
+**Not yet validated:**
+Procedural Adaptation, Procedural Evolution, Online Procedure Learning,
+Repository-to-Repository Transfer on unseen codebases
 
 ### Failure breakdown (full_memory, mean across seeds)
 
 - wrong_procedure_retrieval: 8.2 ± 1.3 per seed (13.7% of fixtures)
 - All other failure classes: 0.0 (no patch errors, no design errors, no instability)
+
+### Next: PSM-006C — Embedding Update Ablation
+
+Before PSM-007 (external validation), run a targeted ablation that isolates
+the missing mechanism. Keep everything identical to PSM-006B; only change
+how the update step works.
+
+**New variant:** `full_memory_embedding_update`
+- After a failed retrieval + verification: update the *embedding vector* of
+  the retrieved (wrong) record by nudging it away from the query fixture's
+  embedding, and nudge the correct family's centroid toward it.
+- Keeps procedure text update as-is.
+- Implements the simplest form of online metric learning.
+
+**Comparison set:**
+
+| Variant | Purpose |
+|---|---|
+| `full_memory_embedding_update` | new — embedding update enabled |
+| `full_memory` (text update only) | baseline from PSM-006B |
+| `no_update` | no update of any kind |
+| `reset` | per-fixture re-seed (no accumulation) |
+| `oracle` | upper bound |
+
+**Questions PSM-006C answers:**
+
+1. Does `retry_after_update_success` become > 0 with embedding update?
+2. Does `full_memory_embedding_update` finally beat `reset` by ≥ 0.10?
+3. Does `reuse_gain` become positive?
+4. Does `no_update` clearly underperform `full_memory_embedding_update`?
+
+If yes to all four: the missing mechanism is isolated and confirmed.
+If no: the gap is deeper than embedding updates (e.g., fixture confounding).
+
+**Also investigate before PSM-006C:** the `structure_only` anomaly. If
+structure_only > full_memory persists after fixture redesign, PSM-006B
+may be measuring StructureMemory performance rather than ProceduralMemory
+performance. Consider fixtures where the *content* of the patch (not just
+its location) is what distinguishes families.
 
 ### Reproduce
 
