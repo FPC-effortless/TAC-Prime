@@ -1,0 +1,2523 @@
+{
+  "experiment": "TAC-PSM-006",
+  "title": "Repository-Grounded Procedural Memory",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "elapsed": 0.5355496406555176,
+  "aggregate": {
+    "n_seeds": 5,
+    "overall_pass": 1.0,
+    "variant_agg": {
+      "full_memory": {
+        "verified_repair_success": {
+          "mean": 0.8,
+          "std": 0.0589,
+          "ci95": 0.0516
+        },
+        "procedure_retrieval_accuracy": {
+          "mean": 0.9433,
+          "std": 0.0435,
+          "ci95": 0.0381
+        },
+        "procedure_reuse_gain": {
+          "mean": 0.8,
+          "std": 0.0589,
+          "ci95": 0.0516
+        },
+        "update_retry_improvement": {
+          "mean": 0.0926,
+          "std": 0.0199,
+          "ci95": 0.0174
+        },
+        "transfer_success": {
+          "mean": 0.8,
+          "std": 0.0589,
+          "ci95": 0.0516
+        },
+        "wrong_procedure_harm": {
+          "mean": -0.6834,
+          "std": 0.0514,
+          "ci95": 0.045
+        },
+        "steps_to_repair": {
+          "mean": 5.8167,
+          "std": 0.1926,
+          "ci95": 0.1688
+        },
+        "survival_score_stability": {
+          "mean": 0.1715,
+          "std": 0.0359,
+          "ci95": 0.0315
+        }
+      },
+      "reset": {
+        "verified_repair_success": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "procedure_retrieval_accuracy": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "procedure_reuse_gain": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "update_retry_improvement": {
+          "mean": -0.3867,
+          "std": 0.0721,
+          "ci95": 0.0632
+        },
+        "transfer_success": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "wrong_procedure_harm": {
+          "mean": 0.1167,
+          "std": 0.0204,
+          "ci95": 0.0179
+        },
+        "steps_to_repair": {
+          "mean": 0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "survival_score_stability": {
+          "mean": 0.0376,
+          "std": 0.0,
+          "ci95": 0.0
+        }
+      },
+      "retrieval_disabled": {
+        "verified_repair_success": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "procedure_retrieval_accuracy": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "procedure_reuse_gain": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "update_retry_improvement": {
+          "mean": -0.3867,
+          "std": 0.0721,
+          "ci95": 0.0632
+        },
+        "transfer_success": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "wrong_procedure_harm": {
+          "mean": 0.1167,
+          "std": 0.0204,
+          "ci95": 0.0179
+        },
+        "steps_to_repair": {
+          "mean": 4,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "survival_score_stability": {
+          "mean": 0.0441,
+          "std": 0.0002,
+          "ci95": 0.0002
+        }
+      },
+      "random_procedure": {
+        "verified_repair_success": {
+          "mean": 0.1167,
+          "std": 0.0204,
+          "ci95": 0.0179
+        },
+        "procedure_retrieval_accuracy": {
+          "mean": 0.1733,
+          "std": 0.0303,
+          "ci95": 0.0266
+        },
+        "procedure_reuse_gain": {
+          "mean": 0.1167,
+          "std": 0.0204,
+          "ci95": 0.0179
+        },
+        "update_retry_improvement": {
+          "mean": -0.27,
+          "std": 0.0628,
+          "ci95": 0.0551
+        },
+        "transfer_success": {
+          "mean": 0.1167,
+          "std": 0.0204,
+          "ci95": 0.0179
+        },
+        "wrong_procedure_harm": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "steps_to_repair": {
+          "mean": 6.1533,
+          "std": 0.1037,
+          "ci95": 0.0909
+        },
+        "survival_score_stability": {
+          "mean": 0.2449,
+          "std": 0.0189,
+          "ci95": 0.0166
+        }
+      },
+      "structure_only": {
+        "verified_repair_success": {
+          "mean": 0.1833,
+          "std": 0.0425,
+          "ci95": 0.0372
+        },
+        "procedure_retrieval_accuracy": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "procedure_reuse_gain": {
+          "mean": 0.1833,
+          "std": 0.0425,
+          "ci95": 0.0372
+        },
+        "update_retry_improvement": {
+          "mean": -0.2033,
+          "std": 0.0594,
+          "ci95": 0.0521
+        },
+        "transfer_success": {
+          "mean": 0.1833,
+          "std": 0.0425,
+          "ci95": 0.0372
+        },
+        "wrong_procedure_harm": {
+          "mean": -0.0667,
+          "std": 0.0373,
+          "ci95": 0.0327
+        },
+        "steps_to_repair": {
+          "mean": 1,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "survival_score_stability": {
+          "mean": 0.0306,
+          "std": 0.0,
+          "ci95": 0.0
+        }
+      },
+      "oracle": {
+        "verified_repair_success": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "procedure_retrieval_accuracy": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "procedure_reuse_gain": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "update_retry_improvement": {
+          "mean": 0.6133,
+          "std": 0.0721,
+          "ci95": 0.0632
+        },
+        "transfer_success": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "wrong_procedure_harm": {
+          "mean": -0.8833,
+          "std": 0.0204,
+          "ci95": 0.0179
+        },
+        "steps_to_repair": {
+          "mean": 5.5767,
+          "std": 0.0303,
+          "ci95": 0.0265
+        },
+        "survival_score_stability": {
+          "mean": 0.0523,
+          "std": 0.0008,
+          "ci95": 0.0007
+        }
+      },
+      "no_update": {
+        "verified_repair_success": {
+          "mean": 0.3867,
+          "std": 0.0721,
+          "ci95": 0.0632
+        },
+        "procedure_retrieval_accuracy": {
+          "mean": 0.94,
+          "std": 0.0384,
+          "ci95": 0.0336
+        },
+        "procedure_reuse_gain": {
+          "mean": 0.3867,
+          "std": 0.0721,
+          "ci95": 0.0632
+        },
+        "update_retry_improvement": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "transfer_success": {
+          "mean": 0.3867,
+          "std": 0.0721,
+          "ci95": 0.0632
+        },
+        "wrong_procedure_harm": {
+          "mean": -0.27,
+          "std": 0.0628,
+          "ci95": 0.0551
+        },
+        "steps_to_repair": {
+          "mean": 2,
+          "std": 0.0,
+          "ci95": 0.0
+        },
+        "survival_score_stability": {
+          "mean": 0.1399,
+          "std": 0.0354,
+          "ci95": 0.031
+        }
+      }
+    },
+    "gate_pass_rates": {
+      "retrieval_accuracy_ge_0.60": 1.0,
+      "no_update_underperforms_tac": 1.0,
+      "tac_beats_reset_by_0.10": 1.0,
+      "update_improves_retry": 1.0,
+      "transfer_success_gt_0": 1.0,
+      "oracle_above_tac": 1.0,
+      "wrong_procedure_no_gain": 1.0,
+      "survival_stable": 1.0
+    },
+    "family_agg": {
+      "ImportModuleError": {
+        "mean": 0.92,
+        "std": 0.0837,
+        "ci95": 0.0733
+      },
+      "DependencyConflict": {
+        "mean": 0.62,
+        "std": 0.1304,
+        "ci95": 0.1143
+      },
+      "VersionAPIMismatch": {
+        "mean": 0.84,
+        "std": 0.0548,
+        "ci95": 0.048
+      },
+      "PathModuleResolution": {
+        "mean": 0.86,
+        "std": 0.114,
+        "ci95": 0.0999
+      },
+      "ConfigurationFailure": {
+        "mean": 0.96,
+        "std": 0.0548,
+        "ci95": 0.048
+      },
+      "TestAssertionRepair": {
+        "mean": 0.6,
+        "std": 0.1581,
+        "ci95": 0.1386
+      }
+    }
+  },
+  "seed_results": [
+    {
+      "seed": 0,
+      "n_train": 60,
+      "n_test": 60,
+      "n_warm_procs": 60,
+      "gates": {
+        "tac_beats_reset_by_0.10": true,
+        "retrieval_accuracy_ge_0.60": true,
+        "update_improves_retry": true,
+        "transfer_success_gt_0": true,
+        "wrong_procedure_no_gain": true,
+        "survival_stable": true,
+        "oracle_above_tac": true,
+        "no_update_underperforms_tac": true
+      },
+      "all_pass": true,
+      "family_success": {
+        "ImportModuleError": 0.8,
+        "DependencyConflict": 0.5,
+        "VersionAPIMismatch": 0.8,
+        "PathModuleResolution": 0.9,
+        "ConfigurationFailure": 0.9,
+        "TestAssertionRepair": 0.7
+      },
+      "confusion": {
+        "families": [
+          "ImportModuleError",
+          "DependencyConflict",
+          "VersionAPIMismatch",
+          "PathModuleResolution",
+          "ConfigurationFailure",
+          "TestAssertionRepair",
+          "Unknown"
+        ],
+        "matrix": {
+          "ImportModuleError": {
+            "ImportModuleError": 9,
+            "TestAssertionRepair": 1
+          },
+          "DependencyConflict": {
+            "DependencyConflict": 9,
+            "VersionAPIMismatch": 1
+          },
+          "VersionAPIMismatch": {
+            "VersionAPIMismatch": 10
+          },
+          "PathModuleResolution": {
+            "PathModuleResolution": 9,
+            "DependencyConflict": 1
+          },
+          "ConfigurationFailure": {
+            "ConfigurationFailure": 9,
+            "ImportModuleError": 1
+          },
+          "TestAssertionRepair": {
+            "TestAssertionRepair": 9,
+            "PathModuleResolution": 1
+          },
+          "Unknown": {}
+        },
+        "n_samples": 60,
+        "macro_precision": 0.787,
+        "macro_recall": 0.7857
+      },
+      "variants": {
+        "full_memory": {
+          "mode": "full_memory",
+          "seed": 0,
+          "n_tasks": 60,
+          "verified_repair_success": 0.7667,
+          "procedure_retrieval_accuracy": 0.9167,
+          "procedure_reuse_gain": 0.7667,
+          "update_retry_improvement": 0.0899,
+          "transfer_success": 0.7667,
+          "wrong_procedure_harm": -0.6667,
+          "steps_to_repair": 6,
+          "survival_score_stability": 0.1904,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 9,
+                "TestAssertionRepair": 1
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 9,
+                "VersionAPIMismatch": 1
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 9,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 9,
+                "ImportModuleError": 1
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 9,
+                "PathModuleResolution": 1
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.787,
+            "macro_recall": 0.7857
+          }
+        },
+        "reset": {
+          "mode": "reset",
+          "seed": 0,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.3333,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1,
+          "steps_to_repair": 0,
+          "survival_score_stability": 0.0376,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "Unknown": 10
+              },
+              "DependencyConflict": {
+                "Unknown": 10
+              },
+              "VersionAPIMismatch": {
+                "Unknown": 10
+              },
+              "PathModuleResolution": {
+                "Unknown": 10
+              },
+              "ConfigurationFailure": {
+                "Unknown": 10
+              },
+              "TestAssertionRepair": {
+                "Unknown": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "retrieval_disabled": {
+          "mode": "retrieval_disabled",
+          "seed": 0,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.3333,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1,
+          "steps_to_repair": 4,
+          "survival_score_stability": 0.0437,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "DependencyConflict": 10
+              },
+              "DependencyConflict": {
+                "VersionAPIMismatch": 10
+              },
+              "VersionAPIMismatch": {
+                "PathModuleResolution": 10
+              },
+              "PathModuleResolution": {
+                "ConfigurationFailure": 10
+              },
+              "ConfigurationFailure": {
+                "TestAssertionRepair": 10
+              },
+              "TestAssertionRepair": {
+                "ImportModuleError": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "random_procedure": {
+          "mode": "random_procedure",
+          "seed": 0,
+          "n_tasks": 60,
+          "verified_repair_success": 0.1,
+          "procedure_retrieval_accuracy": 0.1333,
+          "procedure_reuse_gain": 0.1,
+          "update_retry_improvement": -0.2333,
+          "transfer_success": 0.1,
+          "wrong_procedure_harm": 0.0,
+          "steps_to_repair": 6.1833,
+          "survival_score_stability": 0.2193,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "TestAssertionRepair": 2,
+                "VersionAPIMismatch": 3,
+                "ConfigurationFailure": 1,
+                "ImportModuleError": 1,
+                "DependencyConflict": 1,
+                "PathModuleResolution": 2
+              },
+              "DependencyConflict": {
+                "TestAssertionRepair": 5,
+                "DependencyConflict": 2,
+                "PathModuleResolution": 2,
+                "VersionAPIMismatch": 1
+              },
+              "VersionAPIMismatch": {
+                "PathModuleResolution": 2,
+                "ImportModuleError": 3,
+                "DependencyConflict": 2,
+                "ConfigurationFailure": 1,
+                "TestAssertionRepair": 2
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 2,
+                "ConfigurationFailure": 2,
+                "TestAssertionRepair": 2,
+                "ImportModuleError": 3,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "TestAssertionRepair": 2,
+                "ConfigurationFailure": 1,
+                "VersionAPIMismatch": 4,
+                "PathModuleResolution": 2,
+                "ImportModuleError": 1
+              },
+              "TestAssertionRepair": {
+                "PathModuleResolution": 4,
+                "ConfigurationFailure": 1,
+                "TestAssertionRepair": 2,
+                "DependencyConflict": 2,
+                "VersionAPIMismatch": 1
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.1168,
+            "macro_recall": 0.1143
+          }
+        },
+        "structure_only": {
+          "mode": "structure_only",
+          "seed": 0,
+          "n_tasks": 60,
+          "verified_repair_success": 0.1833,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 0.1833,
+          "update_retry_improvement": -0.15,
+          "transfer_success": 0.1833,
+          "wrong_procedure_harm": -0.0833,
+          "steps_to_repair": 1,
+          "survival_score_stability": 0.0306,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "oracle": {
+          "mode": "oracle",
+          "seed": 0,
+          "n_tasks": 60,
+          "verified_repair_success": 1.0,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 1.0,
+          "update_retry_improvement": 0.6667,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": -0.9,
+          "steps_to_repair": 5.55,
+          "survival_score_stability": 0.0535,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "no_update": {
+          "mode": "no_update",
+          "seed": 0,
+          "n_tasks": 60,
+          "verified_repair_success": 0.3333,
+          "procedure_retrieval_accuracy": 0.9333,
+          "procedure_reuse_gain": 0.3333,
+          "update_retry_improvement": 0.0,
+          "transfer_success": 0.3333,
+          "wrong_procedure_harm": -0.2333,
+          "steps_to_repair": 2,
+          "survival_score_stability": 0.1419,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 9,
+                "TestAssertionRepair": 1
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 9,
+                "VersionAPIMismatch": 1
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 9,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 9,
+                "PathModuleResolution": 1
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8013,
+            "macro_recall": 0.8
+          }
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "n_train": 60,
+      "n_test": 60,
+      "n_warm_procs": 60,
+      "gates": {
+        "tac_beats_reset_by_0.10": true,
+        "retrieval_accuracy_ge_0.60": true,
+        "update_improves_retry": true,
+        "transfer_success_gt_0": true,
+        "wrong_procedure_no_gain": true,
+        "survival_stable": true,
+        "oracle_above_tac": true,
+        "no_update_underperforms_tac": true
+      },
+      "all_pass": true,
+      "family_success": {
+        "ImportModuleError": 1.0,
+        "DependencyConflict": 0.7,
+        "VersionAPIMismatch": 0.8,
+        "PathModuleResolution": 0.9,
+        "ConfigurationFailure": 1.0,
+        "TestAssertionRepair": 0.5
+      },
+      "confusion": {
+        "families": [
+          "ImportModuleError",
+          "DependencyConflict",
+          "VersionAPIMismatch",
+          "PathModuleResolution",
+          "ConfigurationFailure",
+          "TestAssertionRepair",
+          "Unknown"
+        ],
+        "matrix": {
+          "ImportModuleError": {
+            "ImportModuleError": 10
+          },
+          "DependencyConflict": {
+            "DependencyConflict": 10
+          },
+          "VersionAPIMismatch": {
+            "VersionAPIMismatch": 10
+          },
+          "PathModuleResolution": {
+            "PathModuleResolution": 9,
+            "DependencyConflict": 1
+          },
+          "ConfigurationFailure": {
+            "ConfigurationFailure": 10
+          },
+          "TestAssertionRepair": {
+            "TestAssertionRepair": 10
+          },
+          "Unknown": {}
+        },
+        "n_samples": 60,
+        "macro_precision": 0.8442,
+        "macro_recall": 0.8429
+      },
+      "variants": {
+        "full_memory": {
+          "mode": "full_memory",
+          "seed": 1,
+          "n_tasks": 60,
+          "verified_repair_success": 0.8167,
+          "procedure_retrieval_accuracy": 0.9833,
+          "procedure_reuse_gain": 0.8167,
+          "update_retry_improvement": 0.0994,
+          "transfer_success": 0.8167,
+          "wrong_procedure_harm": -0.6667,
+          "steps_to_repair": 5.95,
+          "survival_score_stability": 0.1381,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 9,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8442,
+            "macro_recall": 0.8429
+          }
+        },
+        "reset": {
+          "mode": "reset",
+          "seed": 1,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.4167,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.15,
+          "steps_to_repair": 0,
+          "survival_score_stability": 0.0376,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "Unknown": 10
+              },
+              "DependencyConflict": {
+                "Unknown": 10
+              },
+              "VersionAPIMismatch": {
+                "Unknown": 10
+              },
+              "PathModuleResolution": {
+                "Unknown": 10
+              },
+              "ConfigurationFailure": {
+                "Unknown": 10
+              },
+              "TestAssertionRepair": {
+                "Unknown": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "retrieval_disabled": {
+          "mode": "retrieval_disabled",
+          "seed": 1,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.4167,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.15,
+          "steps_to_repair": 4,
+          "survival_score_stability": 0.0441,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "DependencyConflict": 10
+              },
+              "DependencyConflict": {
+                "VersionAPIMismatch": 10
+              },
+              "VersionAPIMismatch": {
+                "PathModuleResolution": 10
+              },
+              "PathModuleResolution": {
+                "ConfigurationFailure": 10
+              },
+              "ConfigurationFailure": {
+                "TestAssertionRepair": 10
+              },
+              "TestAssertionRepair": {
+                "ImportModuleError": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "random_procedure": {
+          "mode": "random_procedure",
+          "seed": 1,
+          "n_tasks": 60,
+          "verified_repair_success": 0.15,
+          "procedure_retrieval_accuracy": 0.1833,
+          "procedure_reuse_gain": 0.15,
+          "update_retry_improvement": -0.2667,
+          "transfer_success": 0.15,
+          "wrong_procedure_harm": 0.0,
+          "steps_to_repair": 6,
+          "survival_score_stability": 0.2629,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 3,
+                "PathModuleResolution": 2,
+                "TestAssertionRepair": 2,
+                "ConfigurationFailure": 2,
+                "DependencyConflict": 1
+              },
+              "DependencyConflict": {
+                "VersionAPIMismatch": 2,
+                "PathModuleResolution": 2,
+                "ConfigurationFailure": 1,
+                "TestAssertionRepair": 2,
+                "DependencyConflict": 1,
+                "ImportModuleError": 2
+              },
+              "VersionAPIMismatch": {
+                "TestAssertionRepair": 1,
+                "VersionAPIMismatch": 3,
+                "PathModuleResolution": 1,
+                "ConfigurationFailure": 3,
+                "ImportModuleError": 1,
+                "DependencyConflict": 1
+              },
+              "PathModuleResolution": {
+                "ConfigurationFailure": 1,
+                "TestAssertionRepair": 2,
+                "DependencyConflict": 1,
+                "PathModuleResolution": 1,
+                "ImportModuleError": 4,
+                "VersionAPIMismatch": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 3,
+                "PathModuleResolution": 1,
+                "ImportModuleError": 2,
+                "TestAssertionRepair": 1,
+                "VersionAPIMismatch": 2,
+                "DependencyConflict": 1
+              },
+              "TestAssertionRepair": {
+                "PathModuleResolution": 3,
+                "DependencyConflict": 3,
+                "ConfigurationFailure": 2,
+                "VersionAPIMismatch": 2
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.1464,
+            "macro_recall": 0.1571
+          }
+        },
+        "structure_only": {
+          "mode": "structure_only",
+          "seed": 1,
+          "n_tasks": 60,
+          "verified_repair_success": 0.2,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 0.2,
+          "update_retry_improvement": -0.2167,
+          "transfer_success": 0.2,
+          "wrong_procedure_harm": -0.05,
+          "steps_to_repair": 1,
+          "survival_score_stability": 0.0306,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "oracle": {
+          "mode": "oracle",
+          "seed": 1,
+          "n_tasks": 60,
+          "verified_repair_success": 1.0,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 1.0,
+          "update_retry_improvement": 0.5833,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": -0.85,
+          "steps_to_repair": 5.5667,
+          "survival_score_stability": 0.0524,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "no_update": {
+          "mode": "no_update",
+          "seed": 1,
+          "n_tasks": 60,
+          "verified_repair_success": 0.4167,
+          "procedure_retrieval_accuracy": 0.9667,
+          "procedure_reuse_gain": 0.4167,
+          "update_retry_improvement": 0.0,
+          "transfer_success": 0.4167,
+          "wrong_procedure_harm": -0.2667,
+          "steps_to_repair": 2,
+          "survival_score_stability": 0.1156,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 9,
+                "VersionAPIMismatch": 1
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 9,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8299,
+            "macro_recall": 0.8286
+          }
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "n_train": 60,
+      "n_test": 60,
+      "n_warm_procs": 60,
+      "gates": {
+        "tac_beats_reset_by_0.10": true,
+        "retrieval_accuracy_ge_0.60": true,
+        "update_improves_retry": true,
+        "transfer_success_gt_0": true,
+        "wrong_procedure_no_gain": true,
+        "survival_stable": true,
+        "oracle_above_tac": true,
+        "no_update_underperforms_tac": true
+      },
+      "all_pass": true,
+      "family_success": {
+        "ImportModuleError": 1.0,
+        "DependencyConflict": 0.8,
+        "VersionAPIMismatch": 0.9,
+        "PathModuleResolution": 1.0,
+        "ConfigurationFailure": 0.9,
+        "TestAssertionRepair": 0.6
+      },
+      "confusion": {
+        "families": [
+          "ImportModuleError",
+          "DependencyConflict",
+          "VersionAPIMismatch",
+          "PathModuleResolution",
+          "ConfigurationFailure",
+          "TestAssertionRepair",
+          "Unknown"
+        ],
+        "matrix": {
+          "ImportModuleError": {
+            "ImportModuleError": 10
+          },
+          "DependencyConflict": {
+            "DependencyConflict": 10
+          },
+          "VersionAPIMismatch": {
+            "VersionAPIMismatch": 10
+          },
+          "PathModuleResolution": {
+            "PathModuleResolution": 10
+          },
+          "ConfigurationFailure": {
+            "ConfigurationFailure": 9,
+            "PathModuleResolution": 1
+          },
+          "TestAssertionRepair": {
+            "TestAssertionRepair": 10
+          },
+          "Unknown": {}
+        },
+        "n_samples": 60,
+        "macro_precision": 0.8442,
+        "macro_recall": 0.8429
+      },
+      "variants": {
+        "full_memory": {
+          "mode": "full_memory",
+          "seed": 2,
+          "n_tasks": 60,
+          "verified_repair_success": 0.8667,
+          "procedure_retrieval_accuracy": 0.9833,
+          "procedure_reuse_gain": 0.8667,
+          "update_retry_improvement": 0.0817,
+          "transfer_success": 0.8667,
+          "wrong_procedure_harm": -0.75,
+          "steps_to_repair": 5.6,
+          "survival_score_stability": 0.1356,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 9,
+                "PathModuleResolution": 1
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8442,
+            "macro_recall": 0.8429
+          }
+        },
+        "reset": {
+          "mode": "reset",
+          "seed": 2,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.4833,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1167,
+          "steps_to_repair": 0,
+          "survival_score_stability": 0.0376,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "Unknown": 10
+              },
+              "DependencyConflict": {
+                "Unknown": 10
+              },
+              "VersionAPIMismatch": {
+                "Unknown": 10
+              },
+              "PathModuleResolution": {
+                "Unknown": 10
+              },
+              "ConfigurationFailure": {
+                "Unknown": 10
+              },
+              "TestAssertionRepair": {
+                "Unknown": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "retrieval_disabled": {
+          "mode": "retrieval_disabled",
+          "seed": 2,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.4833,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1167,
+          "steps_to_repair": 4,
+          "survival_score_stability": 0.0443,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "DependencyConflict": 10
+              },
+              "DependencyConflict": {
+                "VersionAPIMismatch": 10
+              },
+              "VersionAPIMismatch": {
+                "PathModuleResolution": 10
+              },
+              "PathModuleResolution": {
+                "ConfigurationFailure": 10
+              },
+              "ConfigurationFailure": {
+                "TestAssertionRepair": 10
+              },
+              "TestAssertionRepair": {
+                "ImportModuleError": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "random_procedure": {
+          "mode": "random_procedure",
+          "seed": 2,
+          "n_tasks": 60,
+          "verified_repair_success": 0.1167,
+          "procedure_retrieval_accuracy": 0.1667,
+          "procedure_reuse_gain": 0.1167,
+          "update_retry_improvement": -0.3667,
+          "transfer_success": 0.1167,
+          "wrong_procedure_harm": 0.0,
+          "steps_to_repair": 6.1,
+          "survival_score_stability": 0.2642,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "TestAssertionRepair": 4,
+                "ImportModuleError": 3,
+                "VersionAPIMismatch": 1,
+                "DependencyConflict": 1,
+                "ConfigurationFailure": 1
+              },
+              "DependencyConflict": {
+                "ConfigurationFailure": 2,
+                "TestAssertionRepair": 1,
+                "DependencyConflict": 3,
+                "PathModuleResolution": 3,
+                "ImportModuleError": 1
+              },
+              "VersionAPIMismatch": {
+                "DependencyConflict": 1,
+                "VersionAPIMismatch": 3,
+                "ConfigurationFailure": 2,
+                "TestAssertionRepair": 2,
+                "PathModuleResolution": 2
+              },
+              "PathModuleResolution": {
+                "TestAssertionRepair": 3,
+                "VersionAPIMismatch": 3,
+                "PathModuleResolution": 1,
+                "DependencyConflict": 1,
+                "ImportModuleError": 2
+              },
+              "ConfigurationFailure": {
+                "TestAssertionRepair": 4,
+                "VersionAPIMismatch": 3,
+                "PathModuleResolution": 2,
+                "DependencyConflict": 1
+              },
+              "TestAssertionRepair": {
+                "DependencyConflict": 5,
+                "ImportModuleError": 2,
+                "VersionAPIMismatch": 1,
+                "PathModuleResolution": 2
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.1425,
+            "macro_recall": 0.1429
+          }
+        },
+        "structure_only": {
+          "mode": "structure_only",
+          "seed": 2,
+          "n_tasks": 60,
+          "verified_repair_success": 0.1833,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 0.1833,
+          "update_retry_improvement": -0.3,
+          "transfer_success": 0.1833,
+          "wrong_procedure_harm": -0.0667,
+          "steps_to_repair": 1,
+          "survival_score_stability": 0.0306,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "oracle": {
+          "mode": "oracle",
+          "seed": 2,
+          "n_tasks": 60,
+          "verified_repair_success": 1.0,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 1.0,
+          "update_retry_improvement": 0.5167,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": -0.8833,
+          "steps_to_repair": 5.6,
+          "survival_score_stability": 0.0515,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "no_update": {
+          "mode": "no_update",
+          "seed": 2,
+          "n_tasks": 60,
+          "verified_repair_success": 0.4833,
+          "procedure_retrieval_accuracy": 0.9833,
+          "procedure_reuse_gain": 0.4833,
+          "update_retry_improvement": 0.0,
+          "transfer_success": 0.4833,
+          "wrong_procedure_harm": -0.3667,
+          "steps_to_repair": 2,
+          "survival_score_stability": 0.0995,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 9,
+                "PathModuleResolution": 1
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8442,
+            "macro_recall": 0.8429
+          }
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "n_train": 60,
+      "n_test": 60,
+      "n_warm_procs": 60,
+      "gates": {
+        "tac_beats_reset_by_0.10": true,
+        "retrieval_accuracy_ge_0.60": true,
+        "update_improves_retry": true,
+        "transfer_success_gt_0": true,
+        "wrong_procedure_no_gain": true,
+        "survival_stable": true,
+        "oracle_above_tac": true,
+        "no_update_underperforms_tac": true
+      },
+      "all_pass": true,
+      "family_success": {
+        "ImportModuleError": 0.9,
+        "DependencyConflict": 0.5,
+        "VersionAPIMismatch": 0.8,
+        "PathModuleResolution": 0.7,
+        "ConfigurationFailure": 1.0,
+        "TestAssertionRepair": 0.4
+      },
+      "confusion": {
+        "families": [
+          "ImportModuleError",
+          "DependencyConflict",
+          "VersionAPIMismatch",
+          "PathModuleResolution",
+          "ConfigurationFailure",
+          "TestAssertionRepair",
+          "Unknown"
+        ],
+        "matrix": {
+          "ImportModuleError": {
+            "ImportModuleError": 10
+          },
+          "DependencyConflict": {
+            "DependencyConflict": 8,
+            "ImportModuleError": 1,
+            "VersionAPIMismatch": 1
+          },
+          "VersionAPIMismatch": {
+            "VersionAPIMismatch": 10
+          },
+          "PathModuleResolution": {
+            "PathModuleResolution": 7,
+            "VersionAPIMismatch": 2,
+            "DependencyConflict": 1
+          },
+          "ConfigurationFailure": {
+            "ConfigurationFailure": 10
+          },
+          "TestAssertionRepair": {
+            "TestAssertionRepair": 8,
+            "PathModuleResolution": 1,
+            "DependencyConflict": 1
+          },
+          "Unknown": {}
+        },
+        "n_samples": 60,
+        "macro_precision": 0.7648,
+        "macro_recall": 0.7571
+      },
+      "variants": {
+        "full_memory": {
+          "mode": "full_memory",
+          "seed": 3,
+          "n_tasks": 60,
+          "verified_repair_success": 0.7167,
+          "procedure_retrieval_accuracy": 0.8833,
+          "procedure_reuse_gain": 0.7167,
+          "update_retry_improvement": 0.0698,
+          "transfer_success": 0.7167,
+          "wrong_procedure_harm": -0.6167,
+          "steps_to_repair": 5.9167,
+          "survival_score_stability": 0.2205,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 8,
+                "ImportModuleError": 1,
+                "VersionAPIMismatch": 1
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 7,
+                "VersionAPIMismatch": 2,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 8,
+                "PathModuleResolution": 1,
+                "DependencyConflict": 1
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.7648,
+            "macro_recall": 0.7571
+          }
+        },
+        "reset": {
+          "mode": "reset",
+          "seed": 3,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.3,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1,
+          "steps_to_repair": 0,
+          "survival_score_stability": 0.0376,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "Unknown": 10
+              },
+              "DependencyConflict": {
+                "Unknown": 10
+              },
+              "VersionAPIMismatch": {
+                "Unknown": 10
+              },
+              "PathModuleResolution": {
+                "Unknown": 10
+              },
+              "ConfigurationFailure": {
+                "Unknown": 10
+              },
+              "TestAssertionRepair": {
+                "Unknown": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "retrieval_disabled": {
+          "mode": "retrieval_disabled",
+          "seed": 3,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.3,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1,
+          "steps_to_repair": 4,
+          "survival_score_stability": 0.0443,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "DependencyConflict": 10
+              },
+              "DependencyConflict": {
+                "VersionAPIMismatch": 10
+              },
+              "VersionAPIMismatch": {
+                "PathModuleResolution": 10
+              },
+              "PathModuleResolution": {
+                "ConfigurationFailure": 10
+              },
+              "ConfigurationFailure": {
+                "TestAssertionRepair": 10
+              },
+              "TestAssertionRepair": {
+                "ImportModuleError": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "random_procedure": {
+          "mode": "random_procedure",
+          "seed": 3,
+          "n_tasks": 60,
+          "verified_repair_success": 0.1,
+          "procedure_retrieval_accuracy": 0.2167,
+          "procedure_reuse_gain": 0.1,
+          "update_retry_improvement": -0.2,
+          "transfer_success": 0.1,
+          "wrong_procedure_harm": 0.0,
+          "steps_to_repair": 6.25,
+          "survival_score_stability": 0.2417,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "DependencyConflict": 1,
+                "PathModuleResolution": 5,
+                "ImportModuleError": 1,
+                "VersionAPIMismatch": 1,
+                "TestAssertionRepair": 1,
+                "ConfigurationFailure": 1
+              },
+              "DependencyConflict": {
+                "ImportModuleError": 2,
+                "PathModuleResolution": 3,
+                "TestAssertionRepair": 2,
+                "DependencyConflict": 3
+              },
+              "VersionAPIMismatch": {
+                "ConfigurationFailure": 2,
+                "PathModuleResolution": 4,
+                "TestAssertionRepair": 2,
+                "VersionAPIMismatch": 1,
+                "ImportModuleError": 1
+              },
+              "PathModuleResolution": {
+                "DependencyConflict": 1,
+                "ConfigurationFailure": 3,
+                "ImportModuleError": 2,
+                "TestAssertionRepair": 2,
+                "PathModuleResolution": 1,
+                "VersionAPIMismatch": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 3,
+                "ImportModuleError": 3,
+                "DependencyConflict": 2,
+                "PathModuleResolution": 1,
+                "TestAssertionRepair": 1
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 4,
+                "DependencyConflict": 1,
+                "PathModuleResolution": 2,
+                "ConfigurationFailure": 2,
+                "VersionAPIMismatch": 1
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.2007,
+            "macro_recall": 0.1857
+          }
+        },
+        "structure_only": {
+          "mode": "structure_only",
+          "seed": 3,
+          "n_tasks": 60,
+          "verified_repair_success": 0.1167,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 0.1167,
+          "update_retry_improvement": -0.1833,
+          "transfer_success": 0.1167,
+          "wrong_procedure_harm": -0.0167,
+          "steps_to_repair": 1,
+          "survival_score_stability": 0.0306,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "oracle": {
+          "mode": "oracle",
+          "seed": 3,
+          "n_tasks": 60,
+          "verified_repair_success": 1.0,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 1.0,
+          "update_retry_improvement": 0.7,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": -0.9,
+          "steps_to_repair": 5.55,
+          "survival_score_stability": 0.0516,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "no_update": {
+          "mode": "no_update",
+          "seed": 3,
+          "n_tasks": 60,
+          "verified_repair_success": 0.3,
+          "procedure_retrieval_accuracy": 0.8833,
+          "procedure_reuse_gain": 0.3,
+          "update_retry_improvement": 0.0,
+          "transfer_success": 0.3,
+          "wrong_procedure_harm": -0.2,
+          "steps_to_repair": 2,
+          "survival_score_stability": 0.1914,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 8,
+                "ImportModuleError": 1,
+                "VersionAPIMismatch": 1
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 7,
+                "VersionAPIMismatch": 2,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 8,
+                "PathModuleResolution": 1,
+                "DependencyConflict": 1
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.7648,
+            "macro_recall": 0.7571
+          }
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "n_train": 60,
+      "n_test": 60,
+      "n_warm_procs": 60,
+      "gates": {
+        "tac_beats_reset_by_0.10": true,
+        "retrieval_accuracy_ge_0.60": true,
+        "update_improves_retry": true,
+        "transfer_success_gt_0": true,
+        "wrong_procedure_no_gain": true,
+        "survival_stable": true,
+        "oracle_above_tac": true,
+        "no_update_underperforms_tac": true
+      },
+      "all_pass": true,
+      "family_success": {
+        "ImportModuleError": 0.9,
+        "DependencyConflict": 0.6,
+        "VersionAPIMismatch": 0.9,
+        "PathModuleResolution": 0.8,
+        "ConfigurationFailure": 1.0,
+        "TestAssertionRepair": 0.8
+      },
+      "confusion": {
+        "families": [
+          "ImportModuleError",
+          "DependencyConflict",
+          "VersionAPIMismatch",
+          "PathModuleResolution",
+          "ConfigurationFailure",
+          "TestAssertionRepair",
+          "Unknown"
+        ],
+        "matrix": {
+          "ImportModuleError": {
+            "ImportModuleError": 9,
+            "TestAssertionRepair": 1
+          },
+          "DependencyConflict": {
+            "DependencyConflict": 10
+          },
+          "VersionAPIMismatch": {
+            "VersionAPIMismatch": 10
+          },
+          "PathModuleResolution": {
+            "PathModuleResolution": 8,
+            "VersionAPIMismatch": 1,
+            "DependencyConflict": 1
+          },
+          "ConfigurationFailure": {
+            "ConfigurationFailure": 10
+          },
+          "TestAssertionRepair": {
+            "TestAssertionRepair": 10
+          },
+          "Unknown": {}
+        },
+        "n_samples": 60,
+        "macro_precision": 0.8182,
+        "macro_recall": 0.8143
+      },
+      "variants": {
+        "full_memory": {
+          "mode": "full_memory",
+          "seed": 4,
+          "n_tasks": 60,
+          "verified_repair_success": 0.8333,
+          "procedure_retrieval_accuracy": 0.95,
+          "procedure_reuse_gain": 0.8333,
+          "update_retry_improvement": 0.1224,
+          "transfer_success": 0.8333,
+          "wrong_procedure_harm": -0.7167,
+          "steps_to_repair": 5.6167,
+          "survival_score_stability": 0.1727,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 9,
+                "TestAssertionRepair": 1
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 8,
+                "VersionAPIMismatch": 1,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8182,
+            "macro_recall": 0.8143
+          }
+        },
+        "reset": {
+          "mode": "reset",
+          "seed": 4,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.4,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1167,
+          "steps_to_repair": 0,
+          "survival_score_stability": 0.0376,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "Unknown": 10
+              },
+              "DependencyConflict": {
+                "Unknown": 10
+              },
+              "VersionAPIMismatch": {
+                "Unknown": 10
+              },
+              "PathModuleResolution": {
+                "Unknown": 10
+              },
+              "ConfigurationFailure": {
+                "Unknown": 10
+              },
+              "TestAssertionRepair": {
+                "Unknown": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "retrieval_disabled": {
+          "mode": "retrieval_disabled",
+          "seed": 4,
+          "n_tasks": 60,
+          "verified_repair_success": 0.0,
+          "procedure_retrieval_accuracy": 0.0,
+          "procedure_reuse_gain": 0.0,
+          "update_retry_improvement": -0.4,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": 0.1167,
+          "steps_to_repair": 4,
+          "survival_score_stability": 0.0442,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "DependencyConflict": 10
+              },
+              "DependencyConflict": {
+                "VersionAPIMismatch": 10
+              },
+              "VersionAPIMismatch": {
+                "PathModuleResolution": 10
+              },
+              "PathModuleResolution": {
+                "ConfigurationFailure": 10
+              },
+              "ConfigurationFailure": {
+                "TestAssertionRepair": 10
+              },
+              "TestAssertionRepair": {
+                "ImportModuleError": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.0,
+            "macro_recall": 0.0
+          }
+        },
+        "random_procedure": {
+          "mode": "random_procedure",
+          "seed": 4,
+          "n_tasks": 60,
+          "verified_repair_success": 0.1167,
+          "procedure_retrieval_accuracy": 0.1667,
+          "procedure_reuse_gain": 0.1167,
+          "update_retry_improvement": -0.2833,
+          "transfer_success": 0.1167,
+          "wrong_procedure_harm": 0.0,
+          "steps_to_repair": 6.2333,
+          "survival_score_stability": 0.2363,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "DependencyConflict": 2,
+                "ImportModuleError": 5,
+                "ConfigurationFailure": 1,
+                "VersionAPIMismatch": 1,
+                "PathModuleResolution": 1
+              },
+              "DependencyConflict": {
+                "VersionAPIMismatch": 1,
+                "PathModuleResolution": 3,
+                "TestAssertionRepair": 2,
+                "DependencyConflict": 2,
+                "ConfigurationFailure": 1,
+                "ImportModuleError": 1
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 1,
+                "DependencyConflict": 4,
+                "ConfigurationFailure": 1,
+                "TestAssertionRepair": 2,
+                "ImportModuleError": 2
+              },
+              "PathModuleResolution": {
+                "TestAssertionRepair": 3,
+                "ConfigurationFailure": 1,
+                "DependencyConflict": 6
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 2,
+                "TestAssertionRepair": 5,
+                "VersionAPIMismatch": 1,
+                "ImportModuleError": 1,
+                "PathModuleResolution": 1
+              },
+              "TestAssertionRepair": {
+                "VersionAPIMismatch": 2,
+                "ConfigurationFailure": 1,
+                "PathModuleResolution": 2,
+                "DependencyConflict": 4,
+                "ImportModuleError": 1
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.1519,
+            "macro_recall": 0.1429
+          }
+        },
+        "structure_only": {
+          "mode": "structure_only",
+          "seed": 4,
+          "n_tasks": 60,
+          "verified_repair_success": 0.2333,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 0.2333,
+          "update_retry_improvement": -0.1667,
+          "transfer_success": 0.2333,
+          "wrong_procedure_harm": -0.1167,
+          "steps_to_repair": 1,
+          "survival_score_stability": 0.0306,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "oracle": {
+          "mode": "oracle",
+          "seed": 4,
+          "n_tasks": 60,
+          "verified_repair_success": 1.0,
+          "procedure_retrieval_accuracy": 1.0,
+          "procedure_reuse_gain": 1.0,
+          "update_retry_improvement": 0.6,
+          "transfer_success": 0.0,
+          "wrong_procedure_harm": -0.8833,
+          "steps_to_repair": 5.6167,
+          "survival_score_stability": 0.0524,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 10
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 10
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 10
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.8571,
+            "macro_recall": 0.8571
+          }
+        },
+        "no_update": {
+          "mode": "no_update",
+          "seed": 4,
+          "n_tasks": 60,
+          "verified_repair_success": 0.4,
+          "procedure_retrieval_accuracy": 0.9333,
+          "procedure_reuse_gain": 0.4,
+          "update_retry_improvement": 0.0,
+          "transfer_success": 0.4,
+          "wrong_procedure_harm": -0.2833,
+          "steps_to_repair": 2,
+          "survival_score_stability": 0.151,
+          "confusion": {
+            "families": [
+              "ImportModuleError",
+              "DependencyConflict",
+              "VersionAPIMismatch",
+              "PathModuleResolution",
+              "ConfigurationFailure",
+              "TestAssertionRepair",
+              "Unknown"
+            ],
+            "matrix": {
+              "ImportModuleError": {
+                "ImportModuleError": 9,
+                "TestAssertionRepair": 1
+              },
+              "DependencyConflict": {
+                "DependencyConflict": 10
+              },
+              "VersionAPIMismatch": {
+                "VersionAPIMismatch": 9,
+                "PathModuleResolution": 1
+              },
+              "PathModuleResolution": {
+                "PathModuleResolution": 8,
+                "VersionAPIMismatch": 1,
+                "DependencyConflict": 1
+              },
+              "ConfigurationFailure": {
+                "ConfigurationFailure": 10
+              },
+              "TestAssertionRepair": {
+                "TestAssertionRepair": 10
+              },
+              "Unknown": {}
+            },
+            "n_samples": 60,
+            "macro_precision": 0.801,
+            "macro_recall": 0.8
+          }
+        }
+      }
+    }
+  ],
+  "research_claim": {
+    "tac_success": 0.8,
+    "reset_success": 0.0,
+    "oracle_success": 1.0,
+    "gain": 0.8,
+    "validated": true
+  }
+}

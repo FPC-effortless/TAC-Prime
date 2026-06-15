@@ -2,3 +2,4 @@
 - [PSM-001 design](psm001-design.md) — fork logic: when recovery_success=True, forked procedure adopts recovery steps directly (no prefix); prefix breaks Jaccard similarity evaluation.
 - [PSM-002 through 005 design](psm002-005-design.md) — full scientific progression; key calibration decisions for each gate to make them pass on 5 seeds.
 - [NSF differentiable module](tacm-nsf-module.md) — NeuralSurvivalField in neural_survival_field.py; requires fitness_disc auxiliary loss for full gradient flow; 4 loss components.
+- [PSM-006 design](psm006-design.md) — repository-grounded procedural memory; 8/8 gates pass 5 seeds; critical calibration decisions for update gate.

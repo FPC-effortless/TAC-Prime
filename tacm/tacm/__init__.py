@@ -3,19 +3,23 @@ TAC-SM — Token–Algorithm–Coherence with Structure Memory
 Research-grade model for learning and transferring reusable computational structures.
 """
 
-from .config import TACSMConfig, tacm_30m, tacm_100m, tacm_150m, CONFIGS
-from .model  import TACSM, TACSMOutput
-from .backbone import TransformerBackbone
-from .concept_volume import ConceptVolume, ConceptVolumeOutput
-from .router import StructureRouter, StructureRoutingOutput
-from .experts import MoELayer
-from .memory import StructureMemory, StructureRecord
-from .procedural_memory import ProceduralMemory, ProcedureRecord
-from .survival import SurvivalField, StructureLifecycleTracker, LifecycleState
-from .verifier import VerifierHead, VerifierOutput
-from .multi_token import MultiTokenPredictionModule
-from .evaluation import Evaluator, EvalSample, EvalResult
-from .agent import RepositoryRepairAgent, BugReport, AgentTrace, RepairPlan, Patch
+try:
+    from .config import TACSMConfig, tacm_30m, tacm_100m, tacm_150m, CONFIGS
+    from .model  import TACSM, TACSMOutput
+    from .backbone import TransformerBackbone
+    from .concept_volume import ConceptVolume, ConceptVolumeOutput
+    from .router import StructureRouter, StructureRoutingOutput
+    from .experts import MoELayer
+    from .memory import StructureMemory, StructureRecord
+    from .procedural_memory import ProceduralMemory, ProcedureRecord
+    from .survival import SurvivalField, StructureLifecycleTracker, LifecycleState
+    from .verifier import VerifierHead, VerifierOutput
+    from .multi_token import MultiTokenPredictionModule
+    from .evaluation import Evaluator, EvalSample, EvalResult
+    from .agent import RepositoryRepairAgent, BugReport, AgentTrace, RepairPlan, Patch
+    _TORCH_AVAILABLE = True
+except ModuleNotFoundError:
+    _TORCH_AVAILABLE = False
 
 __version__ = "0.1.0"
 

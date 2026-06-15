@@ -1,0 +1,68 @@
+======================================================================
+TAC-PSM-006 REPLICATION REPORT
+Repository-Grounded Procedural Memory
+======================================================================
+
+Seeds run:    [0, 1, 2, 3, 4]
+N seeds:      5
+Tasks/family: 20  (6 families × 20 = 120 total)
+Elapsed:      0.5s
+
+──────────────────────────────────────────────────────────────────────
+VERIFIED REPAIR SUCCESS — All Variants (mean ± std)
+──────────────────────────────────────────────────────────────────────
+  full_memory                 0.8000 ± 0.0589 ← PRIMARY SYSTEM
+  reset                       0.0000 ± 0.0000 ← LOWER BOUND
+  retrieval_disabled          0.0000 ± 0.0000
+  random_procedure            0.1167 ± 0.0204
+  structure_only              0.1833 ± 0.0425
+  oracle                      1.0000 ± 0.0000 ← UPPER BOUND
+  no_update                   0.3867 ± 0.0721
+
+──────────────────────────────────────────────────────────────────────
+KEY METRICS (full_memory variant)
+──────────────────────────────────────────────────────────────────────
+  Verified repair success               0.8000 ± 0.0589
+  Procedure retrieval accuracy          0.9433 ± 0.0435
+  Reuse gain over reset                 0.8000 ± 0.0589
+  Update retry improvement              0.0926 ± 0.0199
+  Cross-repo transfer success           0.8000 ± 0.0589
+  Wrong-procedure harm                 -0.6834 ± 0.0514
+  Avg steps to repair                   5.8167 ± 0.1926
+  Survival score std-dev                0.1715 ± 0.0359
+
+──────────────────────────────────────────────────────────────────────
+PER-FAMILY SUCCESS (full_memory, mean ± std)
+──────────────────────────────────────────────────────────────────────
+  ImportModuleError            0.9200 ± 0.0837
+  DependencyConflict           0.6200 ± 0.1304
+  VersionAPIMismatch           0.8400 ± 0.0548
+  PathModuleResolution         0.8600 ± 0.1140
+  ConfigurationFailure         0.9600 ± 0.0548
+  TestAssertionRepair          0.6000 ± 0.1581
+
+──────────────────────────────────────────────────────────────────────
+SUCCESS GATES (pass rate across seeds)
+──────────────────────────────────────────────────────────────────────
+  [✓] tac_beats_reset_by_0.10                      1.00/1.0
+  [✓] retrieval_accuracy_ge_0.60                   1.00/1.0
+  [✓] update_improves_retry                        1.00/1.0
+  [✓] transfer_success_gt_0                        1.00/1.0
+  [✓] wrong_procedure_no_gain                      1.00/1.0
+  [✓] survival_stable                              1.00/1.0
+  [✓] oracle_above_tac                             1.00/1.0
+  [✓] no_update_underperforms_tac                  1.00/1.0
+
+──────────────────────────────────────────────────────────────────────
+RESEARCH CLAIM VERDICT
+──────────────────────────────────────────────────────────────────────
+  TAC full memory success:  0.8000
+  Reset baseline success:   0.0000
+  Oracle upper bound:       1.0000
+  Gain over reset:          +0.8000  (threshold >= 0.10)
+
+  VERDICT: ✓ PSM-006 VALIDATES repository-grounded procedural memory.
+
+  Overall gate pass rate: 1.00/1.0
+
+======================================================================
