@@ -1,0 +1,29 @@
+TAC-PSM-006B Failure Analysis (full_memory variant)
+============================================================
+
+Seeds analysed: [0, 1, 2, 3, 4]
+Fixtures per seed: 60
+
+Failure class counts (mean ± std across seeds):
+  wrong_procedure_retrieval                 8.2 ± 1.3  (13.7%)
+  correct_procedure_wrong_patch             0.0 ± 0.0  (0.0%)
+  patch_wrong_file                          0.0 ± 0.0  (0.0%)
+  insufficient_update                       0.0 ± 0.0  (0.0%)
+  family_confusion                          0.0 ± 0.0  (0.0%)
+  transfer_failure                          0.0 ± 0.0  (0.0%)
+  fixture_design_error                      0.0 ± 0.0  (0.0%)
+  verifier_instability                      0.0 ± 0.0  (0.0%)
+  none                                      51.8 ± 1.3  (86.3%)
+
+Total failures/seed: 8.2 ± 1.3
+
+Failure class definitions:
+  wrong_procedure_retrieval   — memory retrieved the wrong family's procedure
+  correct_procedure_wrong_patch — right procedure, patch failed to apply cleanly
+  patch_wrong_file             — patch targeted a non-existent file
+  insufficient_update          — update step did not improve next retrieval
+  family_confusion             — two similar families were confused
+  transfer_failure             — cross-fixture or cross-family transfer failed
+  fixture_design_error         — fixture itself is self-contradictory
+  verifier_instability         — pytest returned different results on retry
+  none                         — success (no failure class)

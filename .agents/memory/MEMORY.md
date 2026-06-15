@@ -4,4 +4,5 @@
 - [NSF differentiable module](tacm-nsf-module.md) — NeuralSurvivalField in neural_survival_field.py; requires fitness_disc auxiliary loss for full gradient flow; 4 loss components.
 - [PSM-006 design](psm006-design.md) — repository-grounded procedural memory; 8/8 gates pass 5 seeds; critical calibration decisions for update gate.
 - [PSM-006B design](psm006b-design.md) — semi-real pytest-grounded repair; SimpleProceduralMemoryStore (numpy, no FAISS); 64-dim centroid embeddings; 49/49 unit tests pass.
+- [PSM-006B results](psm006b-results.md) — 4/8 gates pass; reset≈full_memory (structural); update_improves_retry=0 (embedding not updated); use subprocess not pytest.main() for correctness.
 - [ID001 bugs fixed](id001-bugs.md) — two routing bugs fixed: empty-dict crash + entropy normalization using log(n_families); benchmark loader sys.modules fix.

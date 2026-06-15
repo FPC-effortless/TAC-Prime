@@ -1,0 +1,658 @@
+{
+  "run_info": {
+    "date": "2026-06-15",
+    "n_seeds": 5,
+    "n_fixtures": 60,
+    "n_variants": 7
+  },
+  "seed_results": [
+    {
+      "seed": 0,
+      "metrics": {
+        "pytest_pass_rate": 0.8333333333333334,
+        "first_attempt_repair_success": 0.8333333333333334,
+        "retry_after_update_success": 0.0,
+        "procedure_retrieval_accuracy": 0.8333333333333334,
+        "procedure_reuse_gain": -0.016666666666666607,
+        "cross_fixture_transfer_success": 0.8333333333333334,
+        "cross_family_transfer_success": 0.0,
+        "wrong_procedure_harm": 0.6,
+        "patch_correctness": 1.0,
+        "steps_to_repair": 4,
+        "time_to_repair_s": 0.15859241485595704,
+        "procedure_survival_stability": 0.8333333333333334,
+        "family_confusion_rate": 0.16666666666666666
+      },
+      "gates": {
+        "tac_beats_reset_by_0.10": false,
+        "retrieval_accuracy_ge_0.55": true,
+        "update_improves_retry": false,
+        "no_update_underperforms_tac": true,
+        "random_procedure_no_benefit": true,
+        "oracle_above_tac": true,
+        "cross_fixture_transfer_positive": true,
+        "reuse_gain_positive": false
+      },
+      "variant_rates": {
+        "full_memory": 0.8333333333333334,
+        "reset": 0.85,
+        "retrieval_disabled": 0.55,
+        "random_procedure": 0.4,
+        "structure_only": 0.9166666666666666,
+        "no_update": 0.8166666666666667,
+        "oracle": 1.0
+      },
+      "failures": {
+        "wrong_procedure_retrieval": 10,
+        "correct_procedure_wrong_patch": 0,
+        "patch_wrong_file": 0,
+        "insufficient_update": 0,
+        "family_confusion": 0,
+        "transfer_failure": 0,
+        "fixture_design_error": 0,
+        "verifier_instability": 0,
+        "none": 50
+      },
+      "n_fixtures": 60,
+      "elapsed_s": 39.093581676483154,
+      "cache_hits": 815,
+      "cache_misses": 265
+    },
+    {
+      "seed": 1,
+      "metrics": {
+        "pytest_pass_rate": 0.8833333333333333,
+        "first_attempt_repair_success": 0.8833333333333333,
+        "retry_after_update_success": 0.0,
+        "procedure_retrieval_accuracy": 0.8,
+        "procedure_reuse_gain": 0.016666666666666607,
+        "cross_fixture_transfer_success": 0.8833333333333333,
+        "cross_family_transfer_success": 0.08333333333333333,
+        "wrong_procedure_harm": 0.5666666666666667,
+        "patch_correctness": 1.0,
+        "steps_to_repair": 4,
+        "time_to_repair_s": 0.04312533934911092,
+        "procedure_survival_stability": 0.8833333333333333,
+        "family_confusion_rate": 0.2
+      },
+      "gates": {
+        "tac_beats_reset_by_0.10": false,
+        "retrieval_accuracy_ge_0.55": true,
+        "update_improves_retry": false,
+        "no_update_underperforms_tac": true,
+        "random_procedure_no_benefit": true,
+        "oracle_above_tac": true,
+        "cross_fixture_transfer_positive": true,
+        "reuse_gain_positive": true
+      },
+      "variant_rates": {
+        "full_memory": 0.8833333333333333,
+        "reset": 0.8666666666666667,
+        "retrieval_disabled": 0.55,
+        "random_procedure": 0.43333333333333335,
+        "structure_only": 0.95,
+        "no_update": 0.8666666666666667,
+        "oracle": 1.0
+      },
+      "failures": {
+        "wrong_procedure_retrieval": 7,
+        "correct_procedure_wrong_patch": 0,
+        "patch_wrong_file": 0,
+        "insufficient_update": 0,
+        "family_confusion": 0,
+        "transfer_failure": 0,
+        "fixture_design_error": 0,
+        "verifier_instability": 0,
+        "none": 53
+      },
+      "n_fixtures": 60,
+      "elapsed_s": 30.383294582366943,
+      "cache_hits": 1611,
+      "cache_misses": 309
+    },
+    {
+      "seed": 2,
+      "metrics": {
+        "pytest_pass_rate": 0.8666666666666667,
+        "first_attempt_repair_success": 0.8666666666666667,
+        "retry_after_update_success": 0.0,
+        "procedure_retrieval_accuracy": 0.7666666666666667,
+        "procedure_reuse_gain": -0.033333333333333326,
+        "cross_fixture_transfer_success": 0.8666666666666667,
+        "cross_family_transfer_success": 0.1,
+        "wrong_procedure_harm": 0.5666666666666667,
+        "patch_correctness": 1.0,
+        "steps_to_repair": 4,
+        "time_to_repair_s": 0.03927206595738729,
+        "procedure_survival_stability": 0.8666666666666667,
+        "family_confusion_rate": 0.23333333333333334
+      },
+      "gates": {
+        "tac_beats_reset_by_0.10": false,
+        "retrieval_accuracy_ge_0.55": true,
+        "update_improves_retry": false,
+        "no_update_underperforms_tac": false,
+        "random_procedure_no_benefit": true,
+        "oracle_above_tac": true,
+        "cross_fixture_transfer_positive": true,
+        "reuse_gain_positive": false
+      },
+      "variant_rates": {
+        "full_memory": 0.8666666666666667,
+        "reset": 0.9,
+        "retrieval_disabled": 0.55,
+        "random_procedure": 0.43333333333333335,
+        "structure_only": 0.95,
+        "no_update": 0.9,
+        "oracle": 1.0
+      },
+      "failures": {
+        "wrong_procedure_retrieval": 8,
+        "correct_procedure_wrong_patch": 0,
+        "patch_wrong_file": 0,
+        "insufficient_update": 0,
+        "family_confusion": 0,
+        "transfer_failure": 0,
+        "fixture_design_error": 0,
+        "verifier_instability": 0,
+        "none": 52
+      },
+      "n_fixtures": 60,
+      "elapsed_s": 23.2397198677063,
+      "cache_hits": 2421,
+      "cache_misses": 339
+    },
+    {
+      "seed": 3,
+      "metrics": {
+        "pytest_pass_rate": 0.8833333333333333,
+        "first_attempt_repair_success": 0.8833333333333333,
+        "retry_after_update_success": 0.0,
+        "procedure_retrieval_accuracy": 0.85,
+        "procedure_reuse_gain": 0.033333333333333326,
+        "cross_fixture_transfer_success": 0.8833333333333333,
+        "cross_family_transfer_success": 0.03333333333333333,
+        "wrong_procedure_harm": 0.55,
+        "patch_correctness": 1.0,
+        "steps_to_repair": 4,
+        "time_to_repair_s": 7.409254709879557e-05,
+        "procedure_survival_stability": 0.8833333333333333,
+        "family_confusion_rate": 0.15
+      },
+      "gates": {
+        "tac_beats_reset_by_0.10": false,
+        "retrieval_accuracy_ge_0.55": true,
+        "update_improves_retry": false,
+        "no_update_underperforms_tac": false,
+        "random_procedure_no_benefit": true,
+        "oracle_above_tac": true,
+        "cross_fixture_transfer_positive": true,
+        "reuse_gain_positive": true
+      },
+      "variant_rates": {
+        "full_memory": 0.8833333333333333,
+        "reset": 0.85,
+        "retrieval_disabled": 0.55,
+        "random_procedure": 0.45,
+        "structure_only": 0.9,
+        "no_update": 0.8833333333333333,
+        "oracle": 1.0
+      },
+      "failures": {
+        "wrong_procedure_retrieval": 7,
+        "correct_procedure_wrong_patch": 0,
+        "patch_wrong_file": 0,
+        "insufficient_update": 0,
+        "family_confusion": 0,
+        "transfer_failure": 0,
+        "fixture_design_error": 0,
+        "verifier_instability": 0,
+        "none": 53
+      },
+      "n_fixtures": 60,
+      "elapsed_s": 17.794554948806763,
+      "cache_hits": 3240,
+      "cache_misses": 360
+    },
+    {
+      "seed": 4,
+      "metrics": {
+        "pytest_pass_rate": 0.85,
+        "first_attempt_repair_success": 0.85,
+        "retry_after_update_success": 0.0,
+        "procedure_retrieval_accuracy": 0.8166666666666667,
+        "procedure_reuse_gain": 0.0,
+        "cross_fixture_transfer_success": 0.85,
+        "cross_family_transfer_success": 0.03333333333333333,
+        "wrong_procedure_harm": 0.5166666666666666,
+        "patch_correctness": 1.0,
+        "steps_to_repair": 4,
+        "time_to_repair_s": 0.03102214733759562,
+        "procedure_survival_stability": 0.85,
+        "family_confusion_rate": 0.18333333333333332
+      },
+      "gates": {
+        "tac_beats_reset_by_0.10": false,
+        "retrieval_accuracy_ge_0.55": true,
+        "update_improves_retry": false,
+        "no_update_underperforms_tac": true,
+        "random_procedure_no_benefit": true,
+        "oracle_above_tac": true,
+        "cross_fixture_transfer_positive": true,
+        "reuse_gain_positive": false
+      },
+      "variant_rates": {
+        "full_memory": 0.85,
+        "reset": 0.85,
+        "retrieval_disabled": 0.55,
+        "random_procedure": 0.48333333333333334,
+        "structure_only": 0.9166666666666666,
+        "no_update": 0.8333333333333334,
+        "oracle": 1.0
+      },
+      "failures": {
+        "wrong_procedure_retrieval": 9,
+        "correct_procedure_wrong_patch": 0,
+        "patch_wrong_file": 0,
+        "insufficient_update": 0,
+        "family_confusion": 0,
+        "transfer_failure": 0,
+        "fixture_design_error": 0,
+        "verifier_instability": 0,
+        "none": 51
+      },
+      "n_fixtures": 60,
+      "elapsed_s": 18.775503396987915,
+      "cache_hits": 4061,
+      "cache_misses": 379
+    }
+  ],
+  "per_seed_confusion": [
+    {
+      "seed": 0,
+      "confusion": {
+        "import_module_error": {
+          "import_module_error": 8,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 1,
+          "configuration_failure": 0,
+          "test_assertion_repair": 1
+        },
+        "dependency_config_conflict": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 6,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 3
+        },
+        "version_api_mismatch": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 9,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "path_module_resolution": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 10,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "configuration_failure": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 9,
+          "test_assertion_repair": 0
+        },
+        "test_assertion_repair": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 1,
+          "test_assertion_repair": 8
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "confusion": {
+        "import_module_error": {
+          "import_module_error": 8,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 1,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "dependency_config_conflict": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 8,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 2
+        },
+        "version_api_mismatch": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 7,
+          "path_module_resolution": 1,
+          "configuration_failure": 0,
+          "test_assertion_repair": 1
+        },
+        "path_module_resolution": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 9,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "configuration_failure": {
+          "import_module_error": 2,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 7,
+          "test_assertion_repair": 0
+        },
+        "test_assertion_repair": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 9
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "confusion": {
+        "import_module_error": {
+          "import_module_error": 8,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 1
+        },
+        "dependency_config_conflict": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 7,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 2
+        },
+        "version_api_mismatch": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 7,
+          "path_module_resolution": 1,
+          "configuration_failure": 0,
+          "test_assertion_repair": 1
+        },
+        "path_module_resolution": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 10,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "configuration_failure": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 2,
+          "path_module_resolution": 1,
+          "configuration_failure": 6,
+          "test_assertion_repair": 0
+        },
+        "test_assertion_repair": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 8
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "confusion": {
+        "import_module_error": {
+          "import_module_error": 8,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 1
+        },
+        "dependency_config_conflict": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 7,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 2
+        },
+        "version_api_mismatch": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 2,
+          "version_api_mismatch": 8,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "path_module_resolution": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 10,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "configuration_failure": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 9,
+          "test_assertion_repair": 0
+        },
+        "test_assertion_repair": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 9
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "confusion": {
+        "import_module_error": {
+          "import_module_error": 8,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 1,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "dependency_config_conflict": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 9,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 1
+        },
+        "version_api_mismatch": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 9,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "path_module_resolution": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 9,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "configuration_failure": {
+          "import_module_error": 2,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 6,
+          "test_assertion_repair": 1
+        },
+        "test_assertion_repair": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 8
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "metrics": {
+      "pytest_pass_rate": {
+        "mean": 0.8633333333333333,
+        "std": 0.021730674684008806
+      },
+      "first_attempt_repair_success": {
+        "mean": 0.8633333333333333,
+        "std": 0.021730674684008806
+      },
+      "retry_after_update_success": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "procedure_retrieval_accuracy": {
+        "mean": 0.8133333333333334,
+        "std": 0.03205897343611888
+      },
+      "procedure_reuse_gain": {
+        "mean": 0.0,
+        "std": 0.02635231383473647
+      },
+      "cross_fixture_transfer_success": {
+        "mean": 0.8633333333333333,
+        "std": 0.021730674684008806
+      },
+      "cross_family_transfer_success": {
+        "mean": 0.05,
+        "std": 0.040824829046386304
+      },
+      "wrong_procedure_harm": {
+        "mean": 0.5599999999999999,
+        "std": 0.030276503540974924
+      },
+      "patch_correctness": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "steps_to_repair": {
+        "mean": 4,
+        "std": 0.0
+      },
+      "time_to_repair_s": {
+        "mean": 0.054417212009429936,
+        "std": 0.06064210255492082
+      },
+      "procedure_survival_stability": {
+        "mean": 0.8633333333333333,
+        "std": 0.021730674684008806
+      },
+      "family_confusion_rate": {
+        "mean": 0.18666666666666668,
+        "std": 0.032058973436118916
+      }
+    },
+    "gate_pass_rates": {
+      "tac_beats_reset_by_0.10": {
+        "pass": 0,
+        "total": 5
+      },
+      "retrieval_accuracy_ge_0.55": {
+        "pass": 5,
+        "total": 5
+      },
+      "update_improves_retry": {
+        "pass": 0,
+        "total": 5
+      },
+      "no_update_underperforms_tac": {
+        "pass": 3,
+        "total": 5
+      },
+      "random_procedure_no_benefit": {
+        "pass": 5,
+        "total": 5
+      },
+      "oracle_above_tac": {
+        "pass": 5,
+        "total": 5
+      },
+      "cross_fixture_transfer_positive": {
+        "pass": 5,
+        "total": 5
+      },
+      "reuse_gain_positive": {
+        "pass": 2,
+        "total": 5
+      }
+    },
+    "variant_rates": {
+      "full_memory": {
+        "mean": 0.8633333333333333,
+        "std": 0.021730674684008806
+      },
+      "reset": {
+        "mean": 0.8633333333333333,
+        "std": 0.02173067468400885
+      },
+      "retrieval_disabled": {
+        "mean": 0.55,
+        "std": 0.0
+      },
+      "random_procedure": {
+        "mean": 0.44,
+        "std": 0.03027650354097491
+      },
+      "structure_only": {
+        "mean": 0.9266666666666666,
+        "std": 0.022360679774997876
+      },
+      "no_update": {
+        "mean": 0.86,
+        "std": 0.03456073558887954
+      },
+      "oracle": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  "verdict": "PARTIALLY_VALIDATES"
+}

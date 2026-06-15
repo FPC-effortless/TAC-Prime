@@ -161,7 +161,152 @@ cosine retrieval reliable when noise is moderate.
 
 ---
 
-## 8. File map
+## 8. Benchmark Results (2026-06-15 — 5-seed replication run)
+
+### 8.1 Run parameters
+
+| Parameter | Value |
+|---|---|
+| Date | 2026-06-15 |
+| Seeds | 0, 1, 2, 3, 4 |
+| Fixtures per seed | 60 |
+| Variants | 7 |
+| Verification | subprocess pytest (real exit codes) |
+| Timeout per fixture | 10s |
+| Runner | `run_psm006b_fast.py` (CachingSubprocessVerifier, 8 workers) |
+| Total wall time | 233.7s |
+
+### 8.2 Variant pass rates
+
+| Variant | Mean | Std | Interpretation |
+|---|---|---|---|
+| oracle | 1.000 | 0.000 | Correct upper bound — always retrieves right family |
+| structure_only | 0.927 | 0.022 | High because stub patches often still pass lint-level tests |
+| full_memory | 0.863 | 0.022 | TAC procedural memory |
+| reset | 0.863 | 0.022 | Per-fixture re-seeded store — matches full_memory |
+| no_update | 0.860 | 0.035 | Update path has no measurable effect |
+| retrieval_disabled | 0.550 | 0.000 | Always wrong family; passes = fixtures that pass regardless |
+| random_procedure | 0.440 | 0.030 | Random selection — well below oracle |
+
+### 8.3 Key metrics
+
+| Metric | Mean | Std |
+|---|---|---|
+| pytest_pass_rate | 0.8633 | 0.0217 |
+| first_attempt_repair_success | 0.8633 | 0.0217 |
+| retry_after_update_success | 0.0000 | 0.0000 |
+| procedure_retrieval_accuracy | 0.8133 | 0.0321 |
+| procedure_reuse_gain | 0.0000 | 0.0264 |
+| cross_fixture_transfer_success | 0.8633 | 0.0217 |
+| cross_family_transfer_success | 0.0500 | 0.0408 |
+| wrong_procedure_harm | 0.5600 | 0.0303 |
+| patch_correctness | 1.0000 | 0.0000 |
+| family_confusion_rate | 0.1867 | 0.0321 |
+
+### 8.4 Gate results
+
+| Gate | Seeds Passing | Verdict |
+|---|---|---|
+| retrieval_accuracy_ge_0.55 | 5/5 | PASS |
+| random_procedure_no_benefit | 5/5 | PASS |
+| oracle_above_tac | 5/5 | PASS |
+| cross_fixture_transfer_positive | 5/5 | PASS |
+| tac_beats_reset_by_0.10 | 0/5 | FAIL |
+| update_improves_retry | 0/5 | FAIL |
+| no_update_underperforms_tac | 3/5 | FAIL |
+| reuse_gain_positive | 2/5 | FAIL |
+
+**Verdict: PARTIALLY_VALIDATES (4/8 gates pass on all seeds)**
+
+### 8.5 Per-seed breakdown
+
+| Seed | full_memory | oracle | reset | no_update | random | Gates | Elapsed |
+|---|---|---|---|---|---|---|---|
+| 0 | 0.833 | 1.000 | 0.850 | 0.817 | 0.400 | 5/8 | 39s |
+| 1 | 0.883 | 1.000 | 0.867 | 0.867 | 0.433 | 6/8 | 30s |
+| 2 | 0.867 | 1.000 | 0.900 | 0.900 | 0.433 | 4/8 | 23s |
+| 3 | 0.883 | 1.000 | 0.850 | 0.883 | 0.450 | 5/8 | 18s |
+| 4 | 0.850 | 1.000 | 0.850 | 0.833 | 0.483 | 5/8 | 19s |
+
+### 8.6 Family retrieval accuracy (mean across seeds)
+
+| Family | Mean Retrieval Acc |
+|---|---|
+| path_module_resolution | 0.960 |
+| version_api_mismatch | 0.800 |
+| import_module_error | 0.800 |
+| test_assertion_repair | 0.840 |
+| dependency_config_conflict | 0.740 |
+| configuration_failure | 0.740 |
+
+### 8.7 Failure breakdown (full_memory, mean across seeds)
+
+| Failure Class | Mean/seed | Std | % |
+|---|---|---|---|
+| wrong_procedure_retrieval | 8.2 | 1.3 | 13.7% |
+| correct_procedure_wrong_patch | 0.0 | 0.0 | 0.0% |
+| patch_wrong_file | 0.0 | 0.0 | 0.0% |
+| insufficient_update | 0.0 | 0.0 | 0.0% |
+| family_confusion | 0.0 | 0.0 | 0.0% |
+| transfer_failure | 0.0 | 0.0 | 0.0% |
+| fixture_design_error | 0.0 | 0.0 | 0.0% |
+| verifier_instability | 0.0 | 0.0 | 0.0% |
+| none (success) | 51.8 | 1.3 | 86.3% |
+
+### 8.8 Confusion matrix (full_memory, mean counts across 5 seeds)
+
+Rows = true family; columns = retrieved family:
+
+```
+                        import  dep_cfg  ver_api  path  cfg_fail  assert
+import_module_error      8.0     0.6      0.2     0.6    0.0       0.6
+dependency_config        0.4     7.4      0.2     0.0    0.0       2.0
+version_api_mismatch     0.4     0.8      8.0     0.4    0.0       0.4
+path_module_resolution   0.0     0.2      0.2     9.6    0.0       0.0
+configuration_failure    1.2     0.0      1.0     0.2    7.4       0.2
+test_assertion_repair    0.0     0.8      0.6     0.0    0.2       8.4
+```
+
+Most confused pair: `configuration_failure` ↔ `import_module_error` (1.2 mean misclassifications/seed).
+
+### 8.9 Interpretation of partial validation
+
+**Why 4/8 gates fail:**
+
+1. **`tac_beats_reset_by_0.10` (0/5)**: The reset baseline receives the same oracle
+   procedure seeds before each fixture. This eliminates the advantage of accumulated
+   memory. Full_memory and reset both score 0.863 — the seeded store is already
+   good enough for 86% of fixtures without memory accumulation.
+
+2. **`update_improves_retry` (0/5)**: The update step augments *procedure steps* (text),
+   not the *embedding vector*. When retrieval returns the wrong family, the augmented
+   embedding distance is unchanged — the same wrong family is retrieved on retry.
+   `retry_after_update_success = 0.000` across all seeds.
+
+3. **`no_update_underperforms_tac` (3/5)**: Follows from #2 — since update cannot fix
+   wrong-family retrieval, no_update and full_memory produce the same outcome for
+   the current fixture.  The update's benefit is deferred to *later* fixtures in the
+   sequence, which is not captured by this gate.
+
+4. **`reuse_gain_positive` (2/5)**: `procedure_reuse_gain = full_memory - reset ≈ 0`.
+   Confirmed by #1.
+
+**Why 4/8 gates pass:**
+
+- Retrieval is working well (81% accuracy vs 55% threshold).
+- The oracle correctly upper-bounds TAC on every seed.
+- Random and disabled retrieval are consistently worse than TAC — adversarial
+  controls behave as expected.
+- Cross-fixture transfer within a family is positive (same-family near/far fixtures
+  benefit from the seeded oracle procedure).
+
+**Structural diagnosis**: The update gate failures point to a design gap —
+the update path must modify the embedding (online metric learning) to make
+the `update_improves_retry` gate achievable. This is the natural PSM-007 target.
+
+---
+
+## 9. File map
 
 ```
 tacm/tacm/psm006b/

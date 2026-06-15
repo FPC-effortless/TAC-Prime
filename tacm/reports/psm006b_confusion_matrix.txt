@@ -1,0 +1,10 @@
+TAC-PSM-006B Confusion Matrix (full_memory, mean across seeds)
+============================================================
+
+true\retrieved                le_error    conflict    mismatch    solution    _failure    n_repair  
+import_module_error             8.0         0.6         0.2         0.6         0.0         0.6       
+ency_config_conflict            0.4         7.4         0.2         0.0         0.0         2.0       
+version_api_mismatch            0.4         0.8         8.0         0.4         0.0         0.4       
+th_module_resolution            0.0         0.2         0.2         9.6         0.0         0.0       
+onfiguration_failure            1.2         0.0         1.0         0.2         7.4         0.2       
+est_assertion_repair            0.0         0.8         0.6         0.0         0.2         8.4       

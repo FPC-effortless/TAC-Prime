@@ -1,0 +1,42 @@
+TAC-PSM-006B Per-Family Pass Rates
+==================================================
+
+Seed 0:
+  import_module_error             retrieval_acc=0.800  (n=10)
+  dependency_config_conflict      retrieval_acc=0.600  (n=10)
+  version_api_mismatch            retrieval_acc=0.900  (n=10)
+  path_module_resolution          retrieval_acc=1.000  (n=10)
+  configuration_failure           retrieval_acc=0.900  (n=10)
+  test_assertion_repair           retrieval_acc=0.800  (n=10)
+
+Seed 1:
+  import_module_error             retrieval_acc=0.800  (n=10)
+  dependency_config_conflict      retrieval_acc=0.800  (n=10)
+  version_api_mismatch            retrieval_acc=0.700  (n=10)
+  path_module_resolution          retrieval_acc=0.900  (n=10)
+  configuration_failure           retrieval_acc=0.700  (n=10)
+  test_assertion_repair           retrieval_acc=0.900  (n=10)
+
+Seed 2:
+  import_module_error             retrieval_acc=0.800  (n=10)
+  dependency_config_conflict      retrieval_acc=0.700  (n=10)
+  version_api_mismatch            retrieval_acc=0.700  (n=10)
+  path_module_resolution          retrieval_acc=1.000  (n=10)
+  configuration_failure           retrieval_acc=0.600  (n=10)
+  test_assertion_repair           retrieval_acc=0.800  (n=10)
+
+Seed 3:
+  import_module_error             retrieval_acc=0.800  (n=10)
+  dependency_config_conflict      retrieval_acc=0.700  (n=10)
+  version_api_mismatch            retrieval_acc=0.800  (n=10)
+  path_module_resolution          retrieval_acc=1.000  (n=10)
+  configuration_failure           retrieval_acc=0.900  (n=10)
+  test_assertion_repair           retrieval_acc=0.900  (n=10)
+
+Seed 4:
+  import_module_error             retrieval_acc=0.800  (n=10)
+  dependency_config_conflict      retrieval_acc=0.900  (n=10)
+  version_api_mismatch            retrieval_acc=0.900  (n=10)
+  path_module_resolution          retrieval_acc=0.900  (n=10)
+  configuration_failure           retrieval_acc=0.600  (n=10)
+  test_assertion_repair           retrieval_acc=0.800  (n=10)

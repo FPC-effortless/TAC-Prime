@@ -1,0 +1,59 @@
+TAC-PSM-006B Replication Summary
+============================================================
+Date: 2026-06-15
+Seeds: [0, 1, 2, 3, 4]
+Fixtures per seed: 60
+
+Verdict: TAC-PSM-006B PARTIALLY_VALIDATES
+
+Variant Pass Rates (mean ± std across seeds):
+  full_memory                     0.863 ± 0.022
+  reset                           0.863 ± 0.022
+  retrieval_disabled              0.550 ± 0.000
+  random_procedure                0.440 ± 0.030
+  structure_only                  0.927 ± 0.022
+  no_update                       0.860 ± 0.035
+  oracle                          1.000 ± 0.000
+
+Key Metrics (mean ± std across seeds):
+  pytest_pass_rate                              0.8633 ± 0.0217
+  first_attempt_repair_success                  0.8633 ± 0.0217
+  retry_after_update_success                    0.0000 ± 0.0000
+  procedure_retrieval_accuracy                  0.8133 ± 0.0321
+  procedure_reuse_gain                          0.0000 ± 0.0264
+  cross_fixture_transfer_success                0.8633 ± 0.0217
+  cross_family_transfer_success                 0.0500 ± 0.0408
+  wrong_procedure_harm                          0.5600 ± 0.0303
+  patch_correctness                             1.0000 ± 0.0000
+  steps_to_repair                               4.0000 ± 0.0000
+  time_to_repair_s                              0.0544 ± 0.0606
+  procedure_survival_stability                  0.8633 ± 0.0217
+  family_confusion_rate                         0.1867 ± 0.0321
+
+Gate Results (seeds_passing / total):
+  [FAIL] tac_beats_reset_by_0.10                   0/5
+  [PASS] retrieval_accuracy_ge_0.55                5/5
+  [FAIL] update_improves_retry                     0/5
+  [FAIL] no_update_underperforms_tac               3/5
+  [PASS] random_procedure_no_benefit               5/5
+  [PASS] oracle_above_tac                          5/5
+  [PASS] cross_fixture_transfer_positive           5/5
+  [FAIL] reuse_gain_positive                       2/5
+
+Per-Seed Variant Rates:
+  seed=0  full_memory=0.833  oracle=1.000  reset=0.850  no_update=0.817  random=0.400  (39s)
+  seed=1  full_memory=0.883  oracle=1.000  reset=0.867  no_update=0.867  random=0.433  (30s)
+  seed=2  full_memory=0.867  oracle=1.000  reset=0.900  no_update=0.900  random=0.433  (23s)
+  seed=3  full_memory=0.883  oracle=1.000  reset=0.850  no_update=0.883  random=0.450  (18s)
+  seed=4  full_memory=0.850  oracle=1.000  reset=0.850  no_update=0.833  random=0.483  (19s)
+
+Per-Seed Gate Summary:
+  seed=0  5/8 gates pass
+  seed=1  6/8 gates pass
+  seed=2  4/8 gates pass
+  seed=3  5/8 gates pass
+  seed=4  5/8 gates pass
+
+Note: TAC-PSM-006B uses semi-real pytest-grounded procedural memory.
+full_memory=oracle=1.000 means fixtures have zero noise tolerance;
+this is documented behaviour and not a validity failure.

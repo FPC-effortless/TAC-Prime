@@ -153,20 +153,83 @@ exit codes. If instability is detected in CI, the fixture should be redesigned.
 
 ---
 
-## 3. Failure Rate Expectations by Variant
+## 3. Observed Failure Rates — 2026-06-15 Replication Run
 
-| Variant | Expected primary failure class | Expected pass rate range |
+Run: 5 seeds × 60 fixtures × 7 variants. Subprocess pytest verification.
+All numbers are mean ± std across 5 seeds.
+
+### 3.1 Failure class distribution (full_memory variant)
+
+| Failure Class | Mean/seed | Std | % of fixtures |
+|---|---|---|---|
+| `wrong_procedure_retrieval` | 8.2 | 1.3 | **13.7%** |
+| `correct_procedure_wrong_patch` | 0.0 | 0.0 | 0.0% |
+| `patch_wrong_file` | 0.0 | 0.0 | 0.0% |
+| `insufficient_update` | 0.0 | 0.0 | 0.0% |
+| `family_confusion` | 0.0 | 0.0 | 0.0% |
+| `transfer_failure` | 0.0 | 0.0 | 0.0% |
+| `fixture_design_error` | 0.0 | 0.0 | 0.0% |
+| `verifier_instability` | 0.0 | 0.0 | 0.0% |
+| none (success) | 51.8 | 1.3 | **86.3%** |
+
+**Key finding**: All failures are of class `wrong_procedure_retrieval`.
+Zero patch errors, zero design errors, zero verifier instability — the
+fixture set is internally consistent and the patch mechanism is correct.
+
+### 3.2 Observed pass rates by variant
+
+| Variant | Observed mean | Observed std | Pre-run expectation |
+|---|---|---|---|
+| `oracle` | **1.000** | 0.000 | 0.90 – 1.00 ✓ |
+| `structure_only` | **0.927** | 0.022 | 0.10 – 0.30 ✗ (much higher than expected) |
+| `full_memory` | **0.863** | 0.022 | 0.65 – 0.90 ✓ |
+| `reset` | **0.863** | 0.022 | 0.55 – 0.75 ✗ (higher than expected) |
+| `no_update` | **0.860** | 0.035 | 0.60 – 0.85 ✓ |
+| `retrieval_disabled` | **0.550** | 0.000 | 0.10 – 0.20 ✗ (much higher than expected) |
+| `random_procedure` | **0.440** | 0.030 | 0.10 – 0.20 ✗ (higher than expected) |
+
+**Analysis of expectation mismatches:**
+
+- `structure_only` scored 0.927 (expected 0.10–0.30): The stub patch replaces
+  target file content with a comment. Many tests only check imports or constants
+  that are *not* in the patched file — so the stub doesn't break them. This
+  reveals that some fixtures are under-constrained.
+
+- `retrieval_disabled` scored 0.550 (expected 0.10–0.20): With retrieval
+  disabled the agent always applies the first family's procedure. That procedure
+  happens to produce valid-enough patches for ~55% of fixtures (the pass-regardless
+  baseline). This is the floor below which no retrieval can fall.
+
+- `random_procedure` scored 0.440 (expected 0.10–0.20): Same reason — the
+  pass-regardless rate drives the floor up, and some random families happen
+  to fix some fixtures.
+
+- `reset` scored 0.863 (expected 0.55–0.75): Reset re-seeds oracle procedures
+  before every fixture, so the "no memory reuse" baseline is also a "fresh oracle
+  every time" baseline. This makes reset nearly as strong as full_memory.
+
+### 3.3 Per-family retrieval accuracy (mean across seeds)
+
+| Family | Retrieval acc | Main confusion target |
 |---|---|---|
-| `oracle` | none | 0.90 – 1.00 |
-| `full_memory` | wrong_procedure_retrieval (moderate noise) | 0.65 – 0.90 |
-| `reset` | wrong_procedure_retrieval (no accumulated experience) | 0.55 – 0.75 |
-| `no_update` | correct_procedure_wrong_patch (no augmentation) | 0.60 – 0.85 |
-| `random_procedure` | wrong_procedure_retrieval (always random) | 0.10 – 0.20 |
-| `retrieval_disabled` | wrong_procedure_retrieval (always wrong) | 0.10 – 0.20 |
-| `structure_only` | correct_procedure_wrong_patch | 0.10 – 0.30 |
+| `path_module_resolution` | 0.960 | — |
+| `test_assertion_repair` | 0.840 | `dependency_config_conflict` (0.8/seed) |
+| `import_module_error` | 0.800 | `path_module_resolution` (0.6/seed) |
+| `version_api_mismatch` | 0.800 | `dependency_config_conflict` (0.8/seed) |
+| `dependency_config_conflict` | 0.740 | `test_assertion_repair` (2.0/seed) |
+| `configuration_failure` | 0.740 | `import_module_error` (1.2/seed) |
 
-Note: `oracle` may score < 1.00 due to empty `expected_patch` fixtures (those
-that already pass without any patching) — they contribute 1.0 to the oracle rate.
+### 3.4 Pre-run expectations vs observed
+
+| Expectation | Met? | Notes |
+|---|---|---|
+| `oracle` = 1.000 | ✓ | Confirmed — fixtures well-formed |
+| `patch_correctness` = 1.000 | ✓ | Zero patch application failures |
+| `verifier_instability` = 0 | ✓ | All fixtures deterministic |
+| `fixture_design_error` = 0 | ✓ | No internal inconsistencies |
+| `wrong_proc_retrieval` dominates | ✓ | 100% of failures are retrieval errors |
+| `full_memory` > `reset` by ≥ 0.10 | ✗ | Both 0.863 — seeded reset is too strong |
+| update_improves_retry > 0 | ✗ | Embedding unchanged by update; same retrieval on retry |
 
 ---
 
