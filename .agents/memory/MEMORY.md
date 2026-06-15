@@ -1,1 +1,2 @@
 - [TAC-SM architecture](tacm-architecture.md) — research ML model in `tacm/`; PyTorch; 14 components each in own file; LM heads dominate param count at large vocab.
+- [PSM-001 design](psm001-design.md) — fork logic: when recovery_success=True, forked procedure adopts recovery steps directly (no prefix); prefix breaks Jaccard similarity evaluation.

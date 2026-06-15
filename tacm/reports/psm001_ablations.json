@@ -1,0 +1,147 @@
+{
+  "experiment": "TAC-PSM-001 Ablations",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "elapsed_s": 0.14623570442199707,
+  "results": {
+    "FULL": {
+      "label": "Full Model",
+      "all_pass": true,
+      "degradation": {},
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      }
+    },
+    "remove_failure_modes": {
+      "label": "A: No failure modes",
+      "all_pass": true,
+      "degradation": {
+        "a2_reuse": 0.0,
+        "b1_transfer": 0.0,
+        "c1_transfer": 0.0,
+        "d1_retry": 0.0,
+        "retrieval_accuracy": 0.0,
+        "reuse_gain": 0.0,
+        "retry_improvement": 0.0,
+        "transfer_gain": 0.0,
+        "final_survival": 0.0
+      },
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      }
+    },
+    "remove_recovery_strategies": {
+      "label": "B: No recovery strategies",
+      "all_pass": true,
+      "degradation": {
+        "a2_reuse": 0.0,
+        "b1_transfer": 0.0,
+        "c1_transfer": 0.0,
+        "d1_retry": 0.0,
+        "retrieval_accuracy": 0.0,
+        "reuse_gain": 0.0,
+        "retry_improvement": 0.0,
+        "transfer_gain": 0.0,
+        "final_survival": 0.0
+      },
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      }
+    },
+    "remove_update_mechanism": {
+      "label": "C: No update mechanism",
+      "all_pass": true,
+      "degradation": {
+        "a2_reuse": 0.0,
+        "b1_transfer": 0.0,
+        "c1_transfer": 0.0,
+        "d1_retry": 0.0,
+        "retrieval_accuracy": 0.0,
+        "reuse_gain": 0.0,
+        "retry_improvement": 0.0,
+        "transfer_gain": 0.0,
+        "final_survival": -0.005
+      },
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      }
+    },
+    "remove_transfer_metadata": {
+      "label": "D: No transfer metadata",
+      "all_pass": true,
+      "degradation": {
+        "a2_reuse": 0.0,
+        "b1_transfer": 0.0,
+        "c1_transfer": 0.0,
+        "d1_retry": 0.0,
+        "retrieval_accuracy": 0.0,
+        "reuse_gain": 0.0,
+        "retry_improvement": 0.0,
+        "transfer_gain": 0.0,
+        "final_survival": 0.0
+      },
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      }
+    },
+    "remove_survival_scoring": {
+      "label": "E: No survival scoring",
+      "all_pass": true,
+      "degradation": {
+        "a2_reuse": 0.0,
+        "b1_transfer": 0.0,
+        "c1_transfer": 0.0,
+        "d1_retry": 0.0,
+        "retrieval_accuracy": 0.0,
+        "reuse_gain": 0.0,
+        "retry_improvement": 0.0,
+        "transfer_gain": 0.0,
+        "final_survival": -0.01
+      },
+      "gates": {
+        "retrieval_accuracy_ge_0.70": true,
+        "reuse_gain_ge_0.10": true,
+        "update_improves_retry": true,
+        "reset_deficit_ge_0.20": true,
+        "random_worse_than_correct": true,
+        "transfer_gain_gt_0": true,
+        "survival_stable_across_seeds": true
+      }
+    }
+  }
+}

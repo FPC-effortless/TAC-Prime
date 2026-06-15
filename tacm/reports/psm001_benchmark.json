@@ -1,0 +1,140 @@
+{
+  "label": "full",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "n_seeds": 5,
+  "elapsed": 0.05781054496765137,
+  "agg": {
+    "n_seeds": 5,
+    "a1_success": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "a2_reuse": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "b1_transfer": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "c1_transfer": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "d1_retry": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "d1_pre_retry": {
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "retrieval_accuracy": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "family_match_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "final_survival": {
+      "mean": 0.98505,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "store_size_end": {
+      "mean": 4.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "reuse_gain": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "retry_improvement": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "reset_deficit": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "random_vs_correct": {
+      "mean": -0.8,
+      "std": 0.4472135954999579,
+      "ci95": 0.39199999999999996,
+      "n": 5
+    },
+    "transfer_gain": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "survival_cv": 0.0,
+    "disabled_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "random_rate": {
+      "mean": 0.2,
+      "std": 0.4472135954999579,
+      "ci95": 0.39199999999999996,
+      "n": 5
+    },
+    "oracle_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    },
+    "correct_rate": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci95": 0.0,
+      "n": 5
+    }
+  },
+  "gates": {
+    "retrieval_accuracy_ge_0.70": true,
+    "reuse_gain_ge_0.10": true,
+    "update_improves_retry": true,
+    "reset_deficit_ge_0.20": true,
+    "random_worse_than_correct": true,
+    "transfer_gain_gt_0": true,
+    "survival_stable_across_seeds": true
+  },
+  "all_pass": true
+}

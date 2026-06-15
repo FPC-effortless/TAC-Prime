@@ -1,0 +1,20 @@
+{
+  "seed": 4,
+  "a1_success": true,
+  "a2_reuse": true,
+  "b1_transfer": true,
+  "c1_transfer": true,
+  "d1_retry": true,
+  "d1_pre_retry": false,
+  "retrieval_accuracy": 1.0,
+  "family_match_rate": 1.0,
+  "final_survival": 0.98505,
+  "store_size_end": 4,
+  "results_by_mode": {
+    "disabled": false,
+    "random": false,
+    "wrong": false,
+    "oracle": true
+  },
+  "elapsed_s": 0.003913402557373047
+}
