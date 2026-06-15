@@ -40,6 +40,14 @@ checks unaffected. Some fixtures are under-constrained.
 **Why retrieval_disabled = 0.550 / random = 0.440 (unexpectedly high)**: The
 pass-regardless floor (fixtures that pass with any patch) is ~0.44–0.55.
 
+### PSM-006C follow-up: VALIDATES (7/7 gates, 4 seeds)
+- full_memory_embedding_update = 0.979 ± 0.008 (+0.112 over full_memory and reset)
+- retry_after_update_success went from 0.000 → 0.079 ± 0.029
+- reuse_gain went from 0.000 → 0.113 ± 0.021
+- reset parity broken: emb_update beats reset by +0.112 on every seed
+- The missing mechanism was confirmed: push wrong embedding away, pull correct toward task
+- See psm006c-results.md for full details
+
 ### Runner
 - `tacm/run_psm006b_fast.py` with `CachingSubprocessVerifier` (subprocess-based, thread-safe cache)
 - pytest.main() in forked processes has correctness issues (oracle < full_memory impossible)

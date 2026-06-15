@@ -1,0 +1,15 @@
+TAC-PSM-006C Failure Analysis (full_memory_embedding_update)
+============================================================
+
+Seeds: [0,1,2,3]  Fixtures/seed: 60
+
+Failure class counts (mean +/- std):
+  wrong_procedure_retrieval                 1.2 +/- 0.5  (2.1%)
+  correct_procedure_wrong_patch             0.0 +/- 0.0  (0.0%)
+  patch_wrong_file                          0.0 +/- 0.0  (0.0%)
+  insufficient_update                       0.0 +/- 0.0  (0.0%)
+  family_confusion                          0.0 +/- 0.0  (0.0%)
+  transfer_failure                          0.0 +/- 0.0  (0.0%)
+  fixture_design_error                      0.0 +/- 0.0  (0.0%)
+  verifier_instability                      0.0 +/- 0.0  (0.0%)
+  none                                      58.8 +/- 0.5  (97.9%)

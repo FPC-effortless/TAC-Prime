@@ -1,0 +1,362 @@
+{
+  "run_info": {
+    "date": "2026-06-15",
+    "n_seeds": 2,
+    "n_fixtures": 60,
+    "n_variants": 5,
+    "experiment": "TAC-PSM-006C"
+  },
+  "seed_results": [
+    {
+      "seed": 2,
+      "metrics": {
+        "pytest_pass_rate": 0.9833333333333333,
+        "first_attempt_repair_success": 0.9166666666666666,
+        "retry_after_update_success": 0.06666666666666667,
+        "procedure_retrieval_accuracy": 0.8166666666666667,
+        "procedure_reuse_gain": 0.08333333333333326,
+        "cross_fixture_transfer_success": 0.9833333333333333,
+        "cross_family_transfer_success": 0.16666666666666666,
+        "wrong_procedure_harm": 0.09999999999999998,
+        "patch_correctness": 1.0,
+        "steps_to_repair": 4,
+        "time_to_repair_s": 0.12818567752838134,
+        "procedure_survival_stability": 0.9833333333333333,
+        "family_confusion_rate": 0.18333333333333332,
+        "embedding_update_count": 60.0,
+        "embedding_shift_norm_mean": 0.051842919240395226,
+        "retrieval_changed_after_update": 0.08333333333333333,
+        "family_changed_after_update": 0.08333333333333333,
+        "successful_retrieval_recovery": 0.06666666666666667,
+        "emb_update_vs_full_memory_gain": 0.11666666666666659
+      },
+      "gates": {
+        "retry_after_update_gt_0": true,
+        "embedding_update_beats_full_memory": true,
+        "embedding_update_beats_reset": true,
+        "embedding_update_beats_no_update": true,
+        "reuse_gain_positive": true,
+        "retrieval_changed_after_update_gt_0": true,
+        "oracle_above_tac": true
+      },
+      "variant_rates": {
+        "full_memory_embedding_update": 0.9833333333333333,
+        "full_memory": 0.8666666666666667,
+        "reset": 0.9,
+        "no_update": 0.9,
+        "oracle": 1.0
+      },
+      "failures": {
+        "wrong_procedure_retrieval": 1,
+        "correct_procedure_wrong_patch": 0,
+        "patch_wrong_file": 0,
+        "insufficient_update": 0,
+        "family_confusion": 0,
+        "transfer_failure": 0,
+        "fixture_design_error": 0,
+        "verifier_instability": 0,
+        "none": 59
+      },
+      "n_fixtures": 60,
+      "elapsed_s": 21.6216082572937,
+      "cache_hits": 599,
+      "cache_misses": 186
+    },
+    {
+      "seed": 3,
+      "metrics": {
+        "pytest_pass_rate": 0.9833333333333333,
+        "first_attempt_repair_success": 0.8666666666666667,
+        "retry_after_update_success": 0.11666666666666667,
+        "procedure_retrieval_accuracy": 0.85,
+        "procedure_reuse_gain": 0.1333333333333333,
+        "cross_fixture_transfer_success": 0.9833333333333333,
+        "cross_family_transfer_success": 0.13333333333333333,
+        "wrong_procedure_harm": 0.1166666666666667,
+        "patch_correctness": 1.0,
+        "steps_to_repair": 4,
+        "time_to_repair_s": 0.05380206902821859,
+        "procedure_survival_stability": 0.9833333333333333,
+        "family_confusion_rate": 0.15,
+        "embedding_update_count": 60.0,
+        "embedding_shift_norm_mean": 0.05441459845751524,
+        "retrieval_changed_after_update": 0.13333333333333333,
+        "family_changed_after_update": 0.11666666666666667,
+        "successful_retrieval_recovery": 0.11666666666666667,
+        "emb_update_vs_full_memory_gain": 0.09999999999999998
+      },
+      "gates": {
+        "retry_after_update_gt_0": true,
+        "embedding_update_beats_full_memory": true,
+        "embedding_update_beats_reset": true,
+        "embedding_update_beats_no_update": true,
+        "reuse_gain_positive": true,
+        "retrieval_changed_after_update_gt_0": true,
+        "oracle_above_tac": true
+      },
+      "variant_rates": {
+        "full_memory_embedding_update": 0.9833333333333333,
+        "full_memory": 0.8833333333333333,
+        "reset": 0.85,
+        "no_update": 0.8833333333333333,
+        "oracle": 1.0
+      },
+      "failures": {
+        "wrong_procedure_retrieval": 1,
+        "correct_procedure_wrong_patch": 0,
+        "patch_wrong_file": 0,
+        "insufficient_update": 0,
+        "family_confusion": 0,
+        "transfer_failure": 0,
+        "fixture_design_error": 0,
+        "verifier_instability": 0,
+        "none": 59
+      },
+      "n_fixtures": 60,
+      "elapsed_s": 10.687922477722168,
+      "cache_hits": 1199,
+      "cache_misses": 194
+    }
+  ],
+  "per_seed_confusion": [
+    {
+      "seed": 2,
+      "confusion": {
+        "import_module_error": {
+          "import_module_error": 8,
+          "dependency_config_conflict": 2,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "dependency_config_conflict": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 8,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 2
+        },
+        "version_api_mismatch": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 9,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "path_module_resolution": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 7,
+          "configuration_failure": 1,
+          "test_assertion_repair": 0
+        },
+        "configuration_failure": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 1,
+          "configuration_failure": 8,
+          "test_assertion_repair": 0
+        },
+        "test_assertion_repair": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 9
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "confusion": {
+        "import_module_error": {
+          "import_module_error": 8,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 1
+        },
+        "dependency_config_conflict": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 8,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 2
+        },
+        "version_api_mismatch": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 9,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "path_module_resolution": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 0,
+          "path_module_resolution": 10,
+          "configuration_failure": 0,
+          "test_assertion_repair": 0
+        },
+        "configuration_failure": {
+          "import_module_error": 1,
+          "dependency_config_conflict": 0,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 8,
+          "test_assertion_repair": 0
+        },
+        "test_assertion_repair": {
+          "import_module_error": 0,
+          "dependency_config_conflict": 1,
+          "version_api_mismatch": 1,
+          "path_module_resolution": 0,
+          "configuration_failure": 0,
+          "test_assertion_repair": 8
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "metrics": {
+      "pytest_pass_rate": {
+        "mean": 0.9833333333333333,
+        "std": 0.0
+      },
+      "first_attempt_repair_success": {
+        "mean": 0.8916666666666666,
+        "std": 0.03535533905932733
+      },
+      "retry_after_update_success": {
+        "mean": 0.09166666666666667,
+        "std": 0.035355339059327376
+      },
+      "procedure_retrieval_accuracy": {
+        "mean": 0.8333333333333333,
+        "std": 0.02357022603955158
+      },
+      "procedure_reuse_gain": {
+        "mean": 0.10833333333333328,
+        "std": 0.03535533905932741
+      },
+      "cross_fixture_transfer_success": {
+        "mean": 0.9833333333333333,
+        "std": 0.0
+      },
+      "cross_family_transfer_success": {
+        "mean": 0.15,
+        "std": 0.02357022603955158
+      },
+      "wrong_procedure_harm": {
+        "mean": 0.10833333333333334,
+        "std": 0.011785113019775828
+      },
+      "patch_correctness": {
+        "mean": 1.0,
+        "std": 0.0
+      },
+      "steps_to_repair": {
+        "mean": 4,
+        "std": 0.0
+      },
+      "time_to_repair_s": {
+        "mean": 0.09099387327829997,
+        "std": 0.052597153979590396
+      },
+      "procedure_survival_stability": {
+        "mean": 0.9833333333333333,
+        "std": 0.0
+      },
+      "family_confusion_rate": {
+        "mean": 0.16666666666666666,
+        "std": 0.02357022603955158
+      },
+      "embedding_update_count": {
+        "mean": 60.0,
+        "std": 0.0
+      },
+      "embedding_shift_norm_mean": {
+        "mean": 0.05312875884895524,
+        "std": 0.0018184518134620755
+      },
+      "retrieval_changed_after_update": {
+        "mean": 0.10833333333333334,
+        "std": 0.035355339059327376
+      },
+      "family_changed_after_update": {
+        "mean": 0.1,
+        "std": 0.023570226039551587
+      },
+      "successful_retrieval_recovery": {
+        "mean": 0.09166666666666667,
+        "std": 0.035355339059327376
+      },
+      "emb_update_vs_full_memory_gain": {
+        "mean": 0.10833333333333328,
+        "std": 0.01178511301977575
+      }
+    },
+    "gate_pass_rates": {
+      "retry_after_update_gt_0": {
+        "pass": 2,
+        "total": 2
+      },
+      "embedding_update_beats_full_memory": {
+        "pass": 2,
+        "total": 2
+      },
+      "embedding_update_beats_reset": {
+        "pass": 2,
+        "total": 2
+      },
+      "embedding_update_beats_no_update": {
+        "pass": 2,
+        "total": 2
+      },
+      "reuse_gain_positive": {
+        "pass": 2,
+        "total": 2
+      },
+      "retrieval_changed_after_update_gt_0": {
+        "pass": 2,
+        "total": 2
+      },
+      "oracle_above_tac": {
+        "pass": 2,
+        "total": 2
+      }
+    },
+    "variant_rates": {
+      "full_memory_embedding_update": {
+        "mean": 0.9833333333333333,
+        "std": 0.0
+      },
+      "full_memory": {
+        "mean": 0.875,
+        "std": 0.01178511301977575
+      },
+      "reset": {
+        "mean": 0.875,
+        "std": 0.03535533905932741
+      },
+      "no_update": {
+        "mean": 0.8916666666666666,
+        "std": 0.011785113019775828
+      },
+      "oracle": {
+        "mean": 1.0,
+        "std": 0.0
+      }
+    }
+  },
+  "verdict": "VALIDATES"
+}

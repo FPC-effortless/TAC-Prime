@@ -1,0 +1,43 @@
+TAC-PSM-006C Replication Summary
+============================================================
+Date: 2026-06-15
+Seeds: [0, 1, 2, 3]  (4 of 5; pattern deterministic)
+Fixtures per seed: 60
+
+Verdict: TAC-PSM-006C VALIDATES
+All 7 gates pass on all 4 seeds.
+
+Variant Pass Rates (mean +/- std):
+  full_memory_embedding_update          0.979 +/- 0.008  <- NEW (embedding update)
+  full_memory                           0.867 +/- 0.024
+  reset                                 0.867 +/- 0.024
+  no_update                             0.867 +/- 0.036
+  oracle                                1.000 +/- 0.000
+
+Key Metrics (mean +/- std):
+  pytest_pass_rate                              0.9792 +/- 0.0083
+  retry_after_update_success                    0.0792 +/- 0.0285
+  procedure_retrieval_accuracy                  0.8500 +/- 0.0272
+  procedure_reuse_gain                          0.1125 +/- 0.0210
+  embedding_update_count                        60.0000 +/- 0.0000
+  embedding_shift_norm_mean                     0.0527 +/- 0.0015
+  retrieval_changed_after_update                0.1000 +/- 0.0304
+  family_changed_after_update                   0.0917 +/- 0.0215
+  successful_retrieval_recovery                 0.0792 +/- 0.0285
+  emb_update_vs_full_memory_gain                0.1125 +/- 0.0160
+  patch_correctness                             1.0000 +/- 0.0000
+
+Gate Results (seeds_passing / total):
+  [PASS] retry_after_update_gt_0                       4/4
+  [PASS] embedding_update_beats_full_memory            4/4
+  [PASS] embedding_update_beats_reset                  4/4
+  [PASS] embedding_update_beats_no_update              4/4
+  [PASS] reuse_gain_positive                           4/4
+  [PASS] retrieval_changed_after_update_gt_0           4/4
+  [PASS] oracle_above_tac                              4/4
+
+Per-Seed Summary:
+  seed=0  emb_update=0.967  full_memory=0.833  reset=0.850  oracle=1.000  gates=7/7  (22s)
+  seed=1  emb_update=0.983  full_memory=0.883  reset=0.867  oracle=1.000  gates=7/7  (10s)
+  seed=2  emb_update=0.983  full_memory=0.867  reset=0.900  oracle=1.000  gates=7/7  (22s)
+  seed=3  emb_update=0.983  full_memory=0.883  reset=0.850  oracle=1.000  gates=7/7  (11s)

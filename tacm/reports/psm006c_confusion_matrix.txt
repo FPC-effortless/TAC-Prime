@@ -1,0 +1,10 @@
+TAC-PSM-006C Confusion Matrix (full_memory_embedding_update, mean)
+============================================================
+
+true\retrieved                le_error    conflict    mismatch    solution    _failure    n_repair  
+import_module_error             8.0         0.8         0.2         0.5         0.0         0.5       
+ency_config_conflict            0.0         8.5         0.0         0.0         0.0         1.5       
+version_api_mismatch            0.8         0.2         9.0         0.0         0.0         0.0       
+th_module_resolution            0.2         0.2         0.2         9.0         0.2         0.0       
+onfiguration_failure            0.8         0.2         1.0         0.2         7.8         0.0       
+est_assertion_repair            0.0         0.8         0.5         0.0         0.0         8.8       
