@@ -39,8 +39,8 @@ class TACSCMConfig:
     enable_structure_compiler:      bool = True
     enable_structure_identity:      bool = True
     enable_structure_memory:        bool = True
-    enable_nsf_survival:            bool = True
-    enable_dpsl_refinement:         bool = True
+    enable_nsf_survival:            bool = False
+    enable_dpsl_refinement:         bool = False
     enable_language_structure_fusion: bool = True
     enable_state_carry:             bool = True
     enable_memory_write:            bool = True
