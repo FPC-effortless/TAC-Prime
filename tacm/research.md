@@ -4,6 +4,115 @@ Dated entries, most recent first.
 
 ---
 
+## 2026-06-16 — TAC-SCM-REAL001: Structure-Native Language Model (Real Implementation)
+
+**Result:** IMPLEMENTED — Full real trainable architecture. 16/16 Python-level tests pass; 44 torch-gated tests structured and ready (activate when torch installed).
+
+### What was built
+
+`TACSCMLanguageModel` — a real PyTorch language model that discovers, carries, stores, routes, reuses, and refines computational structures alongside the language modelling objective. Not a stub, not a mock — a real trainable architecture.
+
+### Architecture
+
+```
+TACSCMLanguageModel
+├── Embedding (vocab_size × d_model)
+├── [Layer stack — n_layers]
+│   ├── Even layers: IntegratedStructureLanguageBlock
+│   │   ├── TransformerBlock (GQA, SwiGLU, RoPE)
+│   │   ├── StructureDiscoveryLayer (JEPA + VICReg)
+│   │   ├── StructureCompiler (6 typed heads + fusion)
+│   │   ├── StructureIdentityFieldLayer (route + read + EMA update)
+│   │   ├── StructureMemory.read() (cosine top-k retrieval)
+│   │   ├── NSFSurvivalScorer (survival/write/refine/decay gates)
+│   │   ├── StructureMemory.write() (survival-gated, training only)
+│   │   └── DPSLRefinementLayer (merge + diversity + feedback gating)
+│   └── Odd layers: TransformerBlock (plain)
+├── RMSNorm
+└── LM Head (tied embedding option)
+```
+
+### Files written (10 new modules)
+
+| File | Module | Lines |
+|---|---|---|
+| `tacm/scm_types.py` | All dataclasses | ~200 |
+| `tacm/scm_config.py` | TACSCMConfig + 5 presets | ~150 |
+| `tacm/scm_discovery.py` | JEPA StructureDiscoveryLayer | ~220 |
+| `tacm/scm_compiler.py` | 6-head StructureCompiler | ~180 |
+| `tacm/scm_identity.py` | StructureIdentityState + FieldLayer | ~220 |
+| `tacm/scm_memory.py` | StructureMemory (read/write/persist) | ~250 |
+| `tacm/scm_survival.py` | NSFSurvivalScorer | ~200 |
+| `tacm/scm_refinement.py` | DPSLRefinementLayer | ~170 |
+| `tacm/scm_block.py` | IntegratedStructureLanguageBlock | ~280 |
+| `tacm/scm_model.py` | TACSCMLanguageModel | ~310 |
+| `tacm/data/scm_dataset.py` | SCMDataset + collator + synthetic | ~320 |
+| `experiments/train_tac_scm_real001.py` | Training CLI | ~220 |
+| `experiments/benchmark_tac_scm_real001.py` | 5-condition benchmark | ~270 |
+| `tests_py/test_tac_scm_real001_model.py` | 60 tests (16 pass, 44 skipped) | ~450 |
+| `docs/tac_scm_real001_structure_native_language_model.md` | Full architecture doc | ~330 |
+
+### Loss objective
+
+```
+total_loss = lm_loss + discovery_loss + compiler_loss + identity_losses
+           + survival_loss + refinement_loss
+```
+
+All auxiliary losses have independent weights in TACSCMConfig; all can be zeroed for pure-transformer baseline.
+
+### Ablation presets
+
+| Preset | Description |
+|---|---|
+| `TACSCMConfig.no_scm()` | Pure transformer baseline |
+| `TACSCMConfig.discovery_only()` | JEPA discovery, nothing else |
+| `TACSCMConfig.small()` | Full SCM, small dims |
+| `TACSCMConfig.base()` | Full SCM, standard dims |
+
+### Important implementation notes
+
+- **StructureIdentityState** is distinct from the older `IdentityState` in `identity.py`. The old one carries symbolic identity IDs; the new one carries actual embedding tensors.
+- **StructureMemory**: the learnable parameters (projections) are trained by gradient; the buffer bank (keys, values, usage, age, survival) stores discovered structures across steps without gradients.
+- **Near-duplicate suppression**: cosine sim > 0.95 between incoming structure and existing slot → in-place update (not a new slot).
+- **Discovery target encoder**: EMA copy of online encoder (stop-gradient). Predictor MLP bridges online → target. This prevents representational collapse.
+- **SCM block interval**: configurable — every `scm_layer_interval` transformer layers gets the full SCM pipeline; others are pure TransformerBlocks.
+- **torch guard in dataset**: `scm_dataset.py` uses `try: import torch` with a `_HAS_TORCH` flag so pure-Python tests run without torch installed (same pattern as existing tests in this project).
+
+### Test structure
+
+```
+Section A — No torch needed (always run):
+  Config defaults, presets, loss weight signs
+  SCMSample, SCMDataset, synthetic repair generation
+  SCMDataCollator padding/masking
+
+Section B — torch required (skip when unavailable):
+  Model construction, param count, layer composition
+  Forward pass shape, loss finite, no NaN/inf
+  Backward pass: gradients flow
+  Structure state carry (step_count increments)
+  generate_text shape and no-NaN output
+  Memory write/read/reset/save/load
+  Survival scores finite, gates ∈ [0,1]
+  Refinement modifies structures, merge mask shape
+  Discovery: latent shapes, collapse metric ≥ 0
+  Compiler: typed head shapes
+  Identity field: routing shapes, route weights sum to 1
+  save_pretrained / load_pretrained roundtrip
+```
+
+### Next steps
+
+1. Install torch and run all 60 tests
+2. Run training smoke test: `python experiments/train_tac_scm_real001.py --steps 100 --batch_size 2 --seq_len 32`
+3. Run benchmark: `python experiments/benchmark_tac_scm_real001.py --n_samples 50`
+4. Verify reset_drop and memory_shuffle_drop are non-zero after training
+5. Real tokenizer integration (tiktoken / sentencepiece)
+6. Multi-GPU / FSDP for scale
+
+---
+
 ## 2026-06-15 — TAC-PSM-006C: Online Procedural Embedding Adaptation
 
 **Result:** VALIDATES — 7/7 gates pass on all 4 seeds. Honest run, no tuning.

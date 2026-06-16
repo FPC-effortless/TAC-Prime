@@ -6,4 +6,5 @@
 - [PSM-006B design](psm006b-design.md) — semi-real pytest-grounded repair; SimpleProceduralMemoryStore (numpy, no FAISS); 64-dim centroid embeddings; 49/49 unit tests pass.
 - [PSM-006B results](psm006b-results.md) — 4/8 gates pass; reset≈full_memory (structural); update_improves_retry=0 (embedding not updated); use subprocess not pytest.main() for correctness.
 - [ID001 bugs fixed](id001-bugs.md) — two routing bugs fixed: empty-dict crash + entropy normalization using log(n_families); benchmark loader sys.modules fix.
+- [TAC-SCM-REAL001 architecture](tacm-scm-real001.md) — real trainable SCM language model; 15 files; key quirks: torch guard in dataset, StructureIdentityState ≠ IdentityState, shared StructureMemory.
 - [PSM-006C results](psm006c-results.md) — VALIDATES 7/7 gates 4 seeds; emb_update=0.979 vs full_memory=0.867; retry_after_update 0.000→0.079; timing: prewarm 82s limits seeds/run.
