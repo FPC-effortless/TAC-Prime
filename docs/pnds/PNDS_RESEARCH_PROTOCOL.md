@@ -1,6 +1,6 @@
 # PNDS Universal Research Protocol
 
-**Protocol:** PNDS-URP v0.1  
+**Protocol:** PNDS-URP v0.2  
 **Status:** Active research control document  
 **Purpose:** Provide one uniform research, experiment, evidence, and handoff protocol across the TAC Transformer, TAC-Prime, and CDL Attention research lines.
 
@@ -640,3 +640,189 @@ Primary goals:
 - standardize controls and metrics;
 - create a common path from TAC + CDL + CASM toward PNDS;
 - prevent commercial claims from outrunning experimental evidence.
+
+
+---
+
+## 24. Master benchmark and macro-level research control
+
+The authoritative cross-program benchmark is:
+
+`docs/pnds/PNDS_MASTER_BENCHMARK.md`
+
+It defines the Context-Scaling Proof and the four canonical comparison arms:
+
+1. **FC:** full-context Transformer, (C(N))
+2. **PS:** persistent state only / TAC, (C(S))
+3. **PR:** persistent + routed / TAC + CDL, (C(R(S,Q)))
+4. **PNDS:** persistent + routed structural execution, (C(G(R(S,Q))))
+
+The central falsifiable hypothesis is:
+
+[
+C_{PNDS}(N) approx f(|R_t|)
+]
+
+over increasing irrelevant history, while preserving predefined task-capability parity against the full-context baseline.
+
+This is an empirical scaling hypothesis, not an assumed complexity class. No O(1), O(N/20), 10×, 20×, or similar claim is valid until measured under matched conditions.
+
+---
+
+## 25. Mandatory benchmark invariants
+
+Every confirmatory PNDS benchmark must:
+
+- freeze the task definition and evaluation protocol before measurement;
+- vary irrelevant accumulated history while holding relevant information approximately fixed;
+- use matched hardware, precision, batch/evaluation procedure, and explicitly defined compute accounting;
+- report capability and cost together;
+- declare the accuracy-parity margin before confirmatory runs;
+- report seed-level results and uncertainty where appropriate;
+- preserve raw artifacts and exact provenance;
+- keep the routing anti-leakage boundary intact;
+- distinguish routing success from causal execution;
+- distinguish persistence from mere recoverability/correlation.
+
+The benchmark is a falsification instrument, not a demonstration script.
+
+---
+
+## 26. Anti-leakage boundary is an invariant
+
+For routing and structure selection, the router must not receive:
+
+- target or answer;
+- outcome or reward;
+- true/gold structure ID;
+- oracle mask;
+- correct action;
+- metadata uniquely encoding the correct action.
+
+Permitted inputs must be explicitly enumerated for each experiment.
+
+If a forbidden field enters the router, the affected result is invalid until corrected and rerun.
+
+Evaluation code may retain hidden gold information for scoring, but that information must remain inaccessible to the model and router.
+
+---
+
+## 27. Causal necessity is required for execution claims
+
+A structure being predictive of success is not sufficient to establish that the structure drives the computation.
+
+Whenever an experiment claims executable structural selection, include an intervention that forces an alternative structure/action while controlling other variables.
+
+Record a predefined intervention effect such as:
+
+[
+Delta_{causal}
+=
+P(successmid do(z_i))
+-
+P(successmid do(z_j)).
+]
+
+If the intervention effect is approximately zero under the preregistered threshold, the experiment does not establish causal execution even if routing accuracy is high.
+
+---
+
+## 28. Persistence requires destructive controls
+
+Whenever a capability is attributed to persistent state, test at minimum, where applicable:
+
+1. reset;
+2. state shuffle across episodes/tasks;
+3. wrong-context replacement;
+4. controlled state corruption;
+5. state recoverability probe;
+6. functional state-use probe;
+7. held-out regime.
+
+A persistence result must explain why the claimed advantage disappears or changes under destructive controls. If it survives all controls, investigate alternative information channels before attributing the result to persistence.
+
+---
+
+## 29. Verified-only commit falsification
+
+When the system updates persistent state from observed outcomes, compare:
+
+[
+S_{t+1}=U(S_t,O_t)
+]
+
+against:
+
+[
+S_{t+1}=U(S_t,O_t)quad	ext{only after }V_t=mathrm{accept}.
+]
+
+The comparison must include held-out performance, false commits, stale-state acceptance, poisoning/regression rate, and recovery/repair where applicable.
+
+If unconditional and verified-only updates are indistinguishable under the preregistered integrity tests, the verifier has not demonstrated functional value and must not be credited as a useful PNDS primitive.
+
+---
+
+## 30. Repository isolation and promotion rule
+
+TAC-transformer, TAC-Prime, and CDL Attention remain independent evidence-producing laboratories.
+
+The `pnds` branch is an integration/research gate, not a substitute for standalone evidence.
+
+Do not merge additional architectural complexity into the PNDS substrate merely because it is available. In particular, recurrence, RL, contrastive routing, dual masks, or verifier complexity must not be introduced to rescue an unresolved lower-level primitive.
+
+A primitive enters the integrated substrate only after:
+
+1. a standalone controlled experiment;
+2. explicit leakage audit;
+3. defined primary metric;
+4. baseline/control;
+5. documented failure modes;
+6. reproduction where required;
+7. exact provenance.
+
+Integration means "eligible for the next controlled experiment", not "proven".
+
+---
+
+## 31. Research ladder and stopping rule
+
+The macro research order is:
+
+**persistence → addressability → relevance-efficient routing → executable structure → causal intervention → verified update → scaling → cross-domain transfer.**
+
+Do not jump to a later layer to compensate for failure at an earlier layer.
+
+The immediate PNDS benchmark sequence is therefore:
+
+1. validate the benchmark interface and leakage controls;
+2. complete non-semantic Stage 1 baselines;
+3. construct a nontrivial observable-signal environment;
+4. train Stage 2 routing from observed action outcomes, not hidden structure IDs;
+5. test causal intervention;
+6. test verifier and verified-only update;
+7. run confirmatory history-scaling;
+8. replicate across the four commercial adapter environments.
+
+The smallest experiment that resolves the current uncertainty is preferred over a monolithic fusion run.
+
+---
+
+## 32. Protocol changelog
+
+### v0.2 — 2026-09-24
+
+Added the macro-level research controls:
+
+- authoritative Context-Scaling Proof;
+- explicit FC/PS/PR/PNDS benchmark arms;
+- accuracy/cost joint gate;
+- mandatory history-scaling and matched-cost methodology;
+- immutable routing anti-leakage boundary;
+- causal necessity requirement for execution;
+- destructive persistence controls;
+- verified-only commit falsification;
+- repository isolation and promotion rules;
+- staged research ladder and stopping rule.
+
+Existing v0.1 experiment records remain governed by v0.1 and are not retroactively rewritten.
