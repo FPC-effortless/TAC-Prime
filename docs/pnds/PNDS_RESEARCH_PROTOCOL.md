@@ -826,3 +826,43 @@ Added the macro-level research controls:
 - staged research ladder and stopping rule.
 
 Existing v0.1 experiment records remain governed by v0.1 and are not retroactively rewritten.
+
+---
+
+## 33. Controlled adaptation and registration primitives
+
+The protocol now has a companion specification at docs/pnds/PNDS_ADAPTATION_REGISTRATION.md.
+
+The added primitives are:
+
+1. adaptation regularization;
+2. epistemic quarantine and registration;
+3. typed authority routing;
+4. intermediate/path verification;
+5. state-to-computation coupling.
+
+These are independent hypotheses. Their inclusion does not constitute evidence that the mechanisms improve PNDS.
+
+The canonical state transition is extended to:
+
+S_P -> R_t -> C_t -> A_t -> O_t -> V_t -> S_E -> Q/R -> S_P'
+
+where S_P is registered persistent state and S_E is experimental state.
+
+A successful episode must not directly promote S_E to S_P'.
+
+Persistent-object status should support, where applicable:
+
+- experimental;
+- provisional;
+- registered;
+- quarantined;
+- retired.
+
+Adaptation experiments must measure utility against persistent complexity, cost, and integrity risk. Registration experiments must compare immediate adoption against repeated validation before adoption. Verification experiments must distinguish final-output verification from intermediate-transition verification. Routing experiments must distinguish relevance from authority and must not rely on unrestricted consensus as a default architecture. State interventions must establish functional/causal state-to-computation coupling rather than infer it from correlation.
+
+### v0.3 — 2026-09-24
+
+Added controlled adaptation, quarantine/registration, typed authority routing, intermediate verification, and state-to-computation coupling as separately testable PNDS primitives.
+
+Existing experiment records remain governed by their original protocol version and are not retroactively rewritten.
