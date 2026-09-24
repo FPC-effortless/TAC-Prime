@@ -1,4 +1,4 @@
-from .lifecycle import Status, Gates, InvalidTransition, transition
+from lifecycle import Status, Gates, InvalidTransition, transition
 
 def test_registration_requires_all_gates():
     good = Gates(True, True, True, True)
@@ -26,9 +26,9 @@ def test_registered_cannot_be_created_from_other_states():
             raise AssertionError(f"invalid registration transition from {s}")
 
 def test_basic_lifecycle():
-    e = transition(Status.EXPERIMENTAL, Status.PROVISIONAL)
-    e = transition(e, Status.QUARANTINED)
-    e = transition(Status.QUARANTINED, Status.EXPERIMENTAL)
-    e = transition(e, Status.PROVISIONAL)
-    r = transition(e, Status.REGISTERED, Gates(True, True, True, True))
-    assert r is Status.REGISTERED
+    s = transition(Status.EXPERIMENTAL, Status.PROVISIONAL)
+    s = transition(s, Status.QUARANTINED)
+    s = transition(Status.QUARANTINED, Status.EXPERIMENTAL)
+    s = transition(s, Status.PROVISIONAL)
+    s = transition(s, Status.REGISTERED, Gates(True, True, True, True))
+    assert s is Status.REGISTERED
