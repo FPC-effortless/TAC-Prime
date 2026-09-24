@@ -358,3 +358,21 @@ No adaptation, registration, authority, or intermediate-verification mechanism m
 
 The Context-Scaling Proof remains downstream of these primitive gates.
 
+## Mathematical specification linkage — 2026-09-24
+
+The authoritative mathematical treatment of the benchmark variables, routing/index cost, soft TopK training, leakage bound, SCM interventions, state-integrity controls, verification, registration, and adaptation is now:
+
+`docs/pnds/PNDS_MATHEMATICAL_SPEC_v0.2.md`
+
+The master benchmark should be interpreted together with that specification. In particular:
+
+- candidate generation/indexing is part of PNDS routing cost;
+- a full scan of all persistent objects is not a sublinear routing result;
+- hard TopK requires an explicit train-time relaxation;
+- causal execution requires a defined SCM intervention;
+- state controls should use matched/on-manifold alternatives where possible;
+- verification probabilities must be conditional on prior path steps and normalized or otherwise length-accounted when comparing path lengths;
+- registration uses discovery/validation data and a locked final test;
+- false admission and registered-state contamination are distinct metrics.
+
+The context-scaling proof remains a hypothesis until measured under matched conditions.
