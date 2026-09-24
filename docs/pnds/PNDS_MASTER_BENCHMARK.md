@@ -255,3 +255,106 @@ Every benchmark result must identify:
 
 repository → branch → commit → benchmark version → experiment ID → configuration → seed → artifact → metric.
 
+## 17. Controlled adaptation and registration extension
+
+The master benchmark must distinguish three state layers when persistent learning is evaluated:
+
+| Layer | Meaning |
+|---|---|
+| S_P | registered persistent state available to future episodes |
+| S_E | experimental/provisional state available only within the validation protocol |
+| Q | quarantined or rejected state unavailable to ordinary persistent execution |
+
+The minimum persistent-learning comparison is:
+
+1. immediate registration;
+2. experimental state followed by repeated validation and registration.
+
+A single successful episode must not be sufficient evidence for permanent registration.
+
+For each candidate update record:
+
+- utility delta on the discovery cohort;
+- utility delta on held-out cohorts;
+- validation/cohort count;
+- persistent complexity delta;
+- inference/resource cost delta;
+- regression/poisoning rate;
+- stale-state acceptance;
+- quarantine/rejection rate;
+- recovery/rollback success.
+
+The benchmark should report both capability and state growth.
+
+## 18. Adaptation regularization gate
+
+When self-modification is evaluated, compare regularized and unregularized adaptation under the same discovery budget and evaluation protocol.
+
+Regularization may constrain:
+
+- number of edits;
+- edit scope;
+- repeated failed hypotheses;
+- unexplored-component search;
+- candidate cost increases;
+- changes whose gain is within evaluation noise.
+
+The primary question is:
+
+> Does controlled accumulation improve held-out utility and/or integrity per unit of persistent complexity and inference cost?
+
+Do not assume a particular mathematical penalty or coefficient before the experiment.
+
+## 19. Intermediate verification gate
+
+Where computation consists of a sequence of transitions z_1,...,z_n, compare final-only verification against path-aware verification:
+
+V_final(y)
+
+versus
+
+V_path(z_1,...,z_n,y).
+
+Measure invalid-transition detection, false acceptance, false rejection, repair/backtracking success, final task performance, calibration, and verification cost.
+
+Final correctness alone does not establish transition validity.
+
+## 20. State-to-computation coupling gate
+
+A persistent state is not credited as an executable computational substrate merely because it correlates with outcomes.
+
+Separate:
+
+- predictive state use;
+- functional state use;
+- causal state dependence.
+
+Use interventions that hold routing fixed while changing state, and interventions that hold state fixed while changing routing, where the environment permits.
+
+The relevant measurement is a predefined intervention effect rather than observational correlation.
+
+## 21. Typed authority routing gate
+
+For multi-capability or multi-specialist environments, distinguish relevance routing from authority routing.
+
+The router may select:
+
+- retrieval;
+- execution;
+- prediction;
+- inspection;
+- verification;
+- repair;
+- external tools;
+- specialist computation.
+
+Compare sparse typed routing against an appropriate dense/unrestricted baseline and an authority-shuffled control.
+
+Do not treat natural-language consensus as evidence of correct computation. Measure specialist selection, deference/override behavior, unnecessary activation, intervention effect, and coordination cost.
+
+## 22. Promotion rule
+
+No adaptation, registration, authority, or intermediate-verification mechanism may be credited as a full PNDS capability until its standalone controlled experiment passes the relevant causal/integrity gate.
+
+The Context-Scaling Proof remains downstream of these primitive gates.
+
